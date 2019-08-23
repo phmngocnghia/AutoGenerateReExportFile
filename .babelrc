@@ -4,8 +4,13 @@
       "@babel/typescript",
       {
         "allExtensions": true,
-        "isTSX": true
       }
-    ]
+    ],
+     ["@babel/preset-env", {
+      "modules": false,
+      "targets": {
+        "node": "current"
+      }
+    }],
   ]
 }

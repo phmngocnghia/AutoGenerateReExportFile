@@ -1,21 +1,22 @@
 var path = require("path");
 var ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+var TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+var nodeExternals = require("webpack-node-externals");
 
 module.exports = {
-  mode: "production",
   target: "node",
-  entry: path.resolve(__dirname, "./src/codegen"),
+  mode: "development",
+  entry: path.resolve(__dirname, "./src/recursiveGenerateExportFile"),
   output: {
     path: path.resolve(process.cwd(), "./dist/"),
-    filename: "codegen.js"
+    filename: "codegen.js",
+    libraryTarget: "umd"
   },
   module: {
     rules: [
       {
-        // Typescript
         test: /\.tsx?$/,
-        // shortcut use[{loader}]
+        exclude: /node_modules/,
         loader: "babel-loader"
       }
     ]
@@ -35,5 +36,6 @@ module.exports = {
     new ForkTsCheckerWebpackPlugin({
       tsconfig: path.resolve(__dirname, "./tsconfig.json")
     })
-  ]
+  ],
+  externals: [nodeExternals()]
 };
