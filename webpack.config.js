@@ -7,7 +7,7 @@ module.exports = {
   target: "node",
   entry: path.resolve(__dirname, "./src/codegen"),
   output: {
-    path: path.resolve(process.cwd(), "./public/"),
+    path: path.resolve(process.cwd(), "./dist/"),
     filename: "codegen.js"
   },
   module: {
