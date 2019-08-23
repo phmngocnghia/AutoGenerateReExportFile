@@ -1,0 +1,38 @@
+{
+// include rules and rules are enabled by default
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+  ],
+
+  // !?
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  
+  // variables that predefined
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true,
+    "node": true
+  },
+
+  // manually control whether turn plugin on or off
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "comma-style": "error"
+  },
+  "settings": {
+    // eslint rule react require this settings
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+
+  // parser for typescript
+  "parser": "@typescript-eslint/parser"
+}
