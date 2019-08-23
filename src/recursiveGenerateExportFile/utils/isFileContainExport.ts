@@ -21,7 +21,6 @@ export const isFileContainExport = ({
 
       const ast = parseSync(fileContent, {
         sourceType: "module",
-        configFile: path.resolve(process.cwd(), "./.babelrc"),
         filename: fileName
       });
 
@@ -55,6 +54,8 @@ export const isFileContainExport = ({
       });
       resolve(null);
     } catch (error) {
+      console.log(fileName, error);
+
       resolve(null);
     }
   });
