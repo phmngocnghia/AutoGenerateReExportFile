@@ -44,7 +44,7 @@ export const isFileContainExport = ({
         },
 
         // 处理const A = 1; export { A }这种写法
-        ExportSpecifier(_) {
+        ExportSpecifier() {
           resolve(fileName);
         },
 

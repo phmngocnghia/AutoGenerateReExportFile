@@ -1,2 +1,2 @@
-// prettier-ignore
+/* eslint-disable */
 export default 'a' =

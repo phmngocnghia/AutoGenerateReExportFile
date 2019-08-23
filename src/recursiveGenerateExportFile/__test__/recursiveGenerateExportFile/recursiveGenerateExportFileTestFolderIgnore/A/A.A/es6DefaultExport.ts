@@ -1,2 +1,2 @@
-import {a} from '../../test'
-export default a + 'a';
+import { a } from "../../test";
+export default a + "a";
