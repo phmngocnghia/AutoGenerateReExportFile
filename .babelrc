@@ -6,17 +6,6 @@
         "allExtensions": true,
         "isTSX": true
       }
-    ],
-    [
-      "@babel/preset-env",
-      {
-        "targets": {
-          "esmodules": true
-        }
-      }
-    ],
-  ],
-  "ignore": [
-    "./scripts/codegen/recursiveGenerateExportFile/__test__"
+    ]
   ]
 }

@@ -4,10 +4,11 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   mode: "production",
-  entry: path.resolve(__dirname, "../src/index"),
+  target: "node",
+  entry: path.resolve(__dirname, "./src/codegen"),
   output: {
     path: path.resolve(process.cwd(), "./public/"),
-    filename: "[name].[hash].js"
+    filename: "codegen.js"
   },
   module: {
     rules: [
@@ -20,22 +21,19 @@ module.exports = {
     ]
   },
   resolve: {
-    // since our webpack config store not in the same folde as node module
-    modules: [path.resolve(__dirname, "../node_modules")],
-
     // import without filename
     extensions: [".js", ".ts", ".tsx"],
 
     // auto resolve config from typescript
     plugins: [
       new TsconfigPathsPlugin({
-        configFile: path.resolve(__dirname, "../tsconfig.json")
+        configFile: path.resolve(__dirname, "./tsconfig.json")
       })
     ]
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
-      tsconfig: path.resolve(__dirname, "../tsconfig.json")
+      tsconfig: path.resolve(__dirname, "./tsconfig.json")
     })
   ]
 };
