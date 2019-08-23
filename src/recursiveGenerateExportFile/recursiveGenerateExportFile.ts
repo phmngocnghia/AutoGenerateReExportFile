@@ -19,7 +19,6 @@ export const recursiveGenerateExportFile = ({
         fileExts,
         ignoreDestinationPaths
       });
-    },
-    ignoreDestinationPaths
+    }
   });
 };

@@ -1,6 +1,6 @@
 // typescript code
-const a:number = 1
+const a = 1;
 
 // react code
 
-export const b = a
+export const b = a;

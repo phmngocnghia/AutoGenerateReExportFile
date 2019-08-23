@@ -1,28 +1,28 @@
-import * as path from 'path'
-import {isFileContainExport} from './isFileContainExport'
+import * as path from "path";
+import { isFileContainExport } from "./isFileContainExport";
 
-export const isFolderContainExport = ({
+export const isFolderContainExport = async ({
   folderName,
   destinationPath,
   indexFileExt
 }: {
-  folderName: string,
-  destinationPath: string,
-  indexFileExt: string
-}):Promise<string|null> => {
-  return new Promise(async (resolve) => {
-    try {
-      // check if file is parsable
-      if(await isFileContainExport({
+  folderName: string;
+  destinationPath: string;
+  indexFileExt: string;
+}): Promise<string | null> => {
+  try {
+    // check if file is parsable
+    if (
+      await isFileContainExport({
         destinationPath: path.join(destinationPath, folderName),
-        fileName: `index.${indexFileExt}`,
-      })) {
-        resolve(folderName)
-      }
-      
-      resolve(null)
-    } catch (err) {
-      resolve(null)
+        fileName: `index.${indexFileExt}`
+      })
+    ) {
+      return folderName;
     }
-  })
-}
+
+    return null;
+  } catch (err) {
+    return null;
+  }
+};

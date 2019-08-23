@@ -9,14 +9,19 @@ describe("isPathContainExport", () => {
       { fileName: "es6DefaultExport.ts", output: "es6DefaultExport.ts" },
       { fileName: "es6NamedExport.ts", output: "es6NamedExport.ts" },
       { fileName: "es6FunctionExport.ts", output: "es6FunctionExport.ts" },
-      { fileName: "es6ExportSpecifier.ts", output: "es6ExportSpecifier.ts" },
-    ]
+      { fileName: "es6ExportSpecifier.ts", output: "es6ExportSpecifier.ts" }
+    ];
 
     for (let { fileName, output } of testCases) {
-      expect(isFileContainExport({
-        fileName,
-        destinationPath: path.resolve(__dirname, './isFileContainExportTestFolder')
-      })).resolves.toBe(output);
+      expect(
+        isFileContainExport({
+          fileName,
+          destinationPath: path.resolve(
+            __dirname,
+            "./isFileContainExportTestFolder"
+          )
+        })
+      ).resolves.toBe(output);
     }
   });
 });

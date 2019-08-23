@@ -6,7 +6,10 @@ export const filterFileNameByExt = ({
   fileExts
 }: FilterFileNameByExt) => {
   const fileNamesMatchExt = fileNames.filter(fileName => {
-    const fileExt = path.extname(fileName).split('.').pop()
+    const fileExt = path
+      .extname(fileName)
+      .split(".")
+      .pop();
     return fileExts.includes(fileExt);
   });
 
