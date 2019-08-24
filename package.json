@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack --config-file './webpack.config.js'",
-    "test": "jest --watch",
+    "test": "jest --watch -t 'recursiveGenerateExportFileTest'",
     "test:coverage": "jest --coverage",
     "lint:fix": "eslint './src/**/*.ts' --fix",
     "lint": "eslint './src/**/*.ts'",

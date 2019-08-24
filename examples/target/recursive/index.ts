@@ -1,1 +1,2 @@
-export * from "./es6DefaultExportRecursive";
+export * from './es6DefaultExportRecursive'
+export * from './index'

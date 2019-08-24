@@ -28,7 +28,8 @@ describe("recursiveGenerateExportFileTest", () => {
           "./recursiveGenerateExportFileTestFolderIgnore/A/index.js"
         ),
         outputContent: `export * from './es6DefaultExport'
-export * from './es6NamedExport'`
+export * from './es6NamedExport'
+export * from './A'`
       },
       {
         file: resolve(
@@ -82,7 +83,8 @@ export * from './es6NamedExport'`
           "./recursiveGenerateExportFileTestFolder/A/index.js"
         ),
         outputContent: `export * from './es6DefaultExport'
-export * from './es6NamedExport'`
+export * from './es6NamedExport'
+export * from './A'`
       },
       {
         file: resolve(
@@ -98,6 +100,15 @@ export * from './es6NamedExport'`
           "./recursiveGenerateExportFileTestFolder/B/index.js"
         ),
         outputContent: `export * from './es6NamedExport'`
+      },
+      {
+        file: resolve(
+          __dirname,
+          "./recursiveGenerateExportFileTestFolder/index.js"
+        ),
+        outputContent: `export * from './test'
+export * from './A'
+export * from './B'`
       }
     ];
 

@@ -2,7 +2,7 @@
 const path = require("path");
 // const recursiveGenerateExportFile = require("../dist/codegen.js");
 // console.log(recursiveGenerateExportFile);
-const { recursiveGenerateExportFile } = require("../dist/codegen");
+const { recursiveGenerateExportFile } = require("../dist");
 
 recursiveGenerateExportFile({
   rootDirectory: path.resolve(__dirname, "./target"),
