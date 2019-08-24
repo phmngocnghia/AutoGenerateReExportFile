@@ -9,7 +9,7 @@ module.exports = {
   entry: path.resolve(__dirname, "./src/recursiveGenerateExportFile"),
   output: {
     path: path.resolve(process.cwd(), "./dist/"),
-    filename: "codegen.js",
+    filename: "index.js",
     libraryTarget: "umd"
   },
   module: {

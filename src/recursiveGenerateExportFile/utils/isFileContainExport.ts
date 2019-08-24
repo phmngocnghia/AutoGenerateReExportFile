@@ -27,6 +27,9 @@ export const isFileContainExport = ({
       // this thing run synchoronously
       // @ts-ignore
       traverse(ast, {
+        ExportAllDeclaration() {
+          resolve(fileName);
+        },
         // 主要处理export const a = 1这种写法
         ExportNamedDeclaration(path) {
           // 考虑到一个文件中可能变量声明语法较多但不一定是export，所以对于`export const a = 1`这种写法，没有采用像其他3种方式一样单独对类型做处理，而是在ExportNamedDeclaration中进一步做判断并处理
@@ -54,8 +57,6 @@ export const isFileContainExport = ({
       });
       resolve(null);
     } catch (error) {
-      console.log(fileName, error);
-
       resolve(null);
     }
   });
