@@ -1,0 +1,46 @@
+{
+  "name": "@autogen-export/core",
+  "version": "1.0.0",
+  "main": "",
+  "author": "Nghia Pham <phmngocnghia@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git"
+  },
+  "scripts": {
+    "build": "webpack --config-file './webpack.config.js'",
+    "test": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint:fix": "eslint './src/**/*.ts' --fix",
+    "lint": "eslint './src/**/*.ts'",
+    "run:example": "node './examples/codegen.js'"
+  },
+  "keywords": [
+    "auto generate",
+    "re-export file"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/parser": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@babel/traverse": "^7.5.5",
+    "@babel/types": "^7.5.5",
+    "@types/jest": "^24.0.18",
+    "babel-loader": "^8.0.6",
+    "eslint-loader": "^2.2.1",
+    "file-loader": "^4.1.0",
+    "fork-ts-checker-notifier-webpack-plugin": "^1.0.2",
+    "fork-ts-checker-webpack-plugin": "^1.3.7",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "webpack": "^4.35.2",
+    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-notifier": "^1.8.0"
+  }
+}
