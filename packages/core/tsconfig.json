@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./"],
+      "@types": ["./src/types/index.ts"]
+    }
+  },
+  "exclude": [
+    "**/__test__/**/es6BadSyntax.ts",
+    "**/__test__/**/es6BadSyntax/index.ts",
+    "**/__test__/**/emptyFile.ts"
+  ]
+}
