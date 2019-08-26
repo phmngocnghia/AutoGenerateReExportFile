@@ -5,7 +5,7 @@ var nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   target: "node",
-  mode: "production",
+  mode: "development",
   entry: path.resolve(__dirname, "./src/recursiveGenerateExportFile"),
   output: {
     path: path.resolve(process.cwd(), "./dist/"),

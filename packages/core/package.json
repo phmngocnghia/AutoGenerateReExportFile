@@ -20,7 +20,6 @@
     "re-export file"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/parser": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.5.5",
