@@ -1,2 +1,2 @@
-export * from "./resolvableFile";
-export * from "./resolvableFolder";
+export * from './resolvableFile'
+export * from './resolvableFolder'
