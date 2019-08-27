@@ -1,9 +1,8 @@
-// import { RecursiveGenerateReexportIndex } from "@types";
-import { recursiveTravelDirectory } from "./utils/recursiveTravelDirectory";
+import { travelDirectory } from "./utils/travelDirectory";
 import { generateIndexTs } from "./utils/generateIndexTs";
 import { RecursiveGenerateReexportIndex } from "@types";
 
-export const recursiveGenerateExportFile = ({
+export const generateExportFile = ({
   rootDirectory,
   ignoreDestinationPaths,
   generateFileExt = "js",
@@ -11,7 +10,7 @@ export const recursiveGenerateExportFile = ({
   babelConfigPath,
   stripFileExts = fileExts
 }: RecursiveGenerateReexportIndex) => {
-  return recursiveTravelDirectory({
+  return travelDirectory({
     rootDirectory,
     travelCallBack: ({ directory, childFiles, childDirectories }) => {
       generateIndexTs({
@@ -20,7 +19,6 @@ export const recursiveGenerateExportFile = ({
         ),
         inputDirectoryNames: childDirectories,
         destinationPath: directory,
-
         fileExts,
         ignoreDestinationPaths,
         babelConfigPath,
