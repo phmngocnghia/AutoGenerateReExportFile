@@ -56,10 +56,9 @@ export const generateIndexTs = async ({
   }
 
   // Print generated file name with success color
+  const indexFilePath = path.join(destinationPath, `index.${generateFileExt}`);
+  console.log(`Generate ${indexFilePath}`);
 
   // create index file
-  return fs.writeFileSync(
-    path.join(destinationPath, `index.${generateFileExt}`),
-    fileContent
-  );
+  return fs.writeFileSync(indexFilePath, fileContent);
 };
