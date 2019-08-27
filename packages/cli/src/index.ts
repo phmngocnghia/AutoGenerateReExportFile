@@ -1,5 +1,5 @@
 import { Command, flags } from "@oclif/command";
-import { lstatSync } from "fs";
+import { isValidPathSync } from "./validators/isValidFolderPathSync";
 
 class AutogenExport extends Command {
   static description = "describe the command here";
@@ -7,7 +7,8 @@ class AutogenExport extends Command {
   static flags = {
     recursive: flags.boolean({
       char: "r",
-      description: "generate recursively"
+      description: "generate recursively",
+      default: false
     })
   };
 
@@ -20,16 +21,15 @@ class AutogenExport extends Command {
   ];
 
   async run() {
-    const { args, flags } = this.parse(AutogenExport);
+    const { args } = this.parse(AutogenExport);
 
     const { path } = args;
-    const { recursive } = flags;
-    // const name = flags.name || "world";
-    // this.log(`hello ${name} from ./src/index.ts`);
-    // if (args.file && flags.force) {
-    //   this.log(`you input --force and --file: ${args.file}`);
-    // }
-    console.log("Hello world");
+    // const { recursive } = flags;
+
+    if (!isValidPathSync(path)) {
+      this.error("Path is not a folder or invalid path");
+      this.exit();
+    }
   }
 }
 
