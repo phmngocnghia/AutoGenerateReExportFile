@@ -10,8 +10,8 @@
   "scripts": {
     "build:declaration": "tsc --project './tsconfig-build-declaration.json' --declaration --outdir './dist' --emitDeclarationOnly",
     "build": "webpack --config-file './webpack.config.js'",
-    "test": "jest --watch -t 'createIndexTsFileContent'",
-    "test:coverage": "jest --coverage",
+    "test": "jest --watch",
+    "test:coverage": "jestisValidPath.test --coverage",
     "lint:fix": "eslint './src/**/*.ts' --fix",
     "lint": "eslint './src/**/*.ts'",
     "run:example": "node './examples/codegen.js'"

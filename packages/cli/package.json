@@ -1,0 +1,46 @@
+{
+  "name": "@autogen-export/cli",
+  "version": "0.0.0",
+  "author": "Nghia Pham @phmngocnghia",
+  "bin": {
+    "-autogen-export": "./bin/run"
+  },
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^10",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/phmngocnghia/-autogen-export",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "-autogen-export"
+  },
+  "repository": "phmngocnghia/-autogen-export",
+  "scripts": {
+    "prepack": "rm -rf lib && tsc -b",
+    "run:cmd": "./bin/run",
+    "test": "jest --watch -t 'isValidFolderPathSync'",
+    "test:coverage": "jest --coverage"
+  },
+  "types": "lib/index.d.ts"
+}
