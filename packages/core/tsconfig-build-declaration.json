@@ -11,4 +11,8 @@
     "**/__test__/**/es6BadSyntax/index.ts",
     "**/__test__/**/emptyFile.ts"
   ],
+  "declaration": "true",
+  "files": [
+    "./src/recursiveGenerateExportFile/index.ts"
+  ]
 }

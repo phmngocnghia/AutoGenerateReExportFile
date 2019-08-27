@@ -1,13 +1,14 @@
 {
   "name": "@autogen-export/core",
   "version": "1.0.0",
-  "main": "",
+  "main": "./dist/index.js",
   "author": "Nghia Pham <phmngocnghia@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git"
   },
   "scripts": {
+    "build:declaration": "tsc --project './tsconfig-build-declaration.json' --declaration --outdir './dist' --emitDeclarationOnly",
     "build": "webpack --config-file './webpack.config.js'",
     "test": "jest --watch -t 'createIndexTsFileContent'",
     "test:coverage": "jest --coverage",
