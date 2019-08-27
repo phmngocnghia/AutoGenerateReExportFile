@@ -1,4 +1,5 @@
 import { parseSync } from "@babel/core";
+import { resolve } from "path";
 import traverse from "@babel/traverse";
 import * as t from "@babel/types";
 import * as path from "path";
@@ -9,10 +10,12 @@ import { readFileSync } from "fs";
 // not throw anything to make sure it work correctly with promise.all
 export const isFileContainExport = ({
   fileName,
-  destinationPath
+  destinationPath,
+  babelConfigPath = resolve(process.cwd(), "./.babelrc")
 }: {
   destinationPath: string;
   fileName: string;
+  babelConfigPath?: string;
 }): Promise<string | null> => {
   return new Promise(resolve => {
     try {
@@ -22,7 +25,7 @@ export const isFileContainExport = ({
       const ast = parseSync(fileContent, {
         sourceType: "module",
         filename: fileName,
-        configFile: path.resolve(__dirname, "../../../../../.babelrc")
+        configFile: babelConfigPath
       });
 
       // this thing run synchoronously

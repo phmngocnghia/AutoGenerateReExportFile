@@ -14,7 +14,7 @@ describe("getFolderNamesInDestinationContainExport", () => {
         __dirname,
         "./getFolderNamesInDestinationContainExportTestFolder/"
       ),
-      indexFileExt: "ts"
+      indexstring: "ts"
     };
 
     const output = ["es6DefaultExport", "es6NamedExport"];

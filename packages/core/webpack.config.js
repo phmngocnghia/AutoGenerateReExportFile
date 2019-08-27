@@ -17,10 +17,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
-        options: {
-          configFile: path.resolve(__dirname, "../../.babelrc")
-        }
+        loader: "babel-loader"
       }
     ]
   },

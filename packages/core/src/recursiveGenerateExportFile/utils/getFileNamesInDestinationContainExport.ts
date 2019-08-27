@@ -2,16 +2,19 @@ import { isFileContainExport } from "./isFileContainExport";
 
 export const getFileNamesInDestinationContainExport = async ({
   fileNames,
-  destinationPath
+  destinationPath,
+  babelConfigPath
 }: {
   fileNames: string[];
   destinationPath: string;
+  babelConfigPath?: string;
 }): Promise<string[]> => {
   const fileNamePromiseObjects = fileNames.map(fileName => ({
     fileName,
     promiseCheckIfFileContainExport: isFileContainExport({
       fileName,
-      destinationPath
+      destinationPath,
+      babelConfigPath
     }).then(value => {
       return value;
     })
