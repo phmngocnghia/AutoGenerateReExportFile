@@ -247,13 +247,13 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
 
-"@babel/plugin-proposal-json-strings@^7.2.0":
+"@babel/plugin-proposal-json-fileExts@^7.2.0":
   version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-json-strings/-/plugin-proposal-json-strings-7.2.0.tgz#568ecc446c6148ae6b267f02551130891e29f317"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-json-fileExts/-/plugin-proposal-json-fileExts-7.2.0.tgz#568ecc446c6148ae6b267f02551130891e29f317"
   integrity sha512-MAFV1CA/YVmYwZG0fBQyXhmj0BHCB5egZHCKWIFVv/XCxAeVGIHfos3SwDck4LvCllENIAg7xMKOG5kH0dzyUg==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
-    "@babel/plugin-syntax-json-strings" "^7.2.0"
+    "@babel/plugin-syntax-json-fileExts" "^7.2.0"
 
 "@babel/plugin-proposal-object-rest-spread@^7.5.5":
   version "7.5.5"
@@ -294,9 +294,9 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-syntax-json-strings@^7.2.0":
+"@babel/plugin-syntax-json-fileExts@^7.2.0":
   version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-json-strings/-/plugin-syntax-json-strings-7.2.0.tgz#72bd13f6ffe1d25938129d2a186b11fd62951470"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-json-fileExts/-/plugin-syntax-json-fileExts-7.2.0.tgz#72bd13f6ffe1d25938129d2a186b11fd62951470"
   integrity sha512-5UGYnMSLRE1dqqZwug+1LISpA403HzlSfsg6P9VXU6TBjcSHeNlw4DxDx7LgpF+iKZoOG/+uzqoRHTdcUpiZNg==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -586,13 +586,13 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-proposal-async-generator-functions" "^7.2.0"
     "@babel/plugin-proposal-dynamic-import" "^7.5.0"
-    "@babel/plugin-proposal-json-strings" "^7.2.0"
+    "@babel/plugin-proposal-json-fileExts" "^7.2.0"
     "@babel/plugin-proposal-object-rest-spread" "^7.5.5"
     "@babel/plugin-proposal-optional-catch-binding" "^7.2.0"
     "@babel/plugin-proposal-unicode-property-regex" "^7.4.4"
     "@babel/plugin-syntax-async-generators" "^7.2.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
-    "@babel/plugin-syntax-json-strings" "^7.2.0"
+    "@babel/plugin-syntax-json-fileExts" "^7.2.0"
     "@babel/plugin-syntax-object-rest-spread" "^7.2.0"
     "@babel/plugin-syntax-optional-catch-binding" "^7.2.0"
     "@babel/plugin-transform-arrow-functions" "^7.2.0"

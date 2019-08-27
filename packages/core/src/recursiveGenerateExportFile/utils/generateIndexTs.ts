@@ -9,11 +9,13 @@ import { getFolderNamesInDestinationContainExport } from "./getFolderNamesInDest
 
 export const generateIndexTs = async ({
   fileExts,
+  stripFileExts,
   inputDirectoryNames,
   inputFileNames,
-  generatedFileExt,
+  generateFileExt,
   destinationPath,
-  ignoreDestinationPaths
+  ignoreDestinationPaths,
+  babelConfigPath
 }: GenerateIndexTsParams) => {
   // Ignore destination match destinations
   if (
@@ -29,31 +31,35 @@ export const generateIndexTs = async ({
     fileExts
   });
 
-  const [fileNames, directoryNames] = await Promise.all([
+  const [fileNames, folderNames] = await Promise.all([
     getFileNamesInDestinationContainExport({
       fileNames: fileNamesMatchExt,
-      destinationPath
+      destinationPath,
+      babelConfigPath
     }),
     getFolderNamesInDestinationContainExport({
       folderNames: inputDirectoryNames,
       destinationPath,
-      indexFileExt: generatedFileExt
+      indexstring: generateFileExt
     })
   ]);
 
   // create file content
-  const fileContent = createIndexTsFileContent([
-    ...fileNames,
-    ...directoryNames
-  ]);
+  const fileContent = createIndexTsFileContent({
+    fileNames,
+    folderNames,
+    stripFileExts
+  });
 
   if (!fileContent) {
     return;
   }
 
+  // Print generated file name with success color
+
   // create index file
   return fs.writeFileSync(
-    path.join(destinationPath, `index.${generatedFileExt}`),
+    path.join(destinationPath, `index.${generateFileExt}`),
     fileContent
   );
 };

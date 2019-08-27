@@ -13,7 +13,7 @@ describe("generateIndexTs", () => {
         __dirname,
         "./generateIndexTsTestFolderEmpty"
       ),
-      generatedFileExt: "ts",
+      generateFileExt: "ts",
       ignoreDestinationPaths: [/generateIndexTsTestFolderEmpty/]
     }).then(() => {
       // assert data of generate index function
@@ -37,7 +37,7 @@ describe("generateIndexTs", () => {
         __dirname,
         "./generateIndexTsTestFolderEmpty/"
       ),
-      generatedFileExt: "ts",
+      generateFileExt: "ts",
       ignoreDestinationPaths: []
     }).then(() => {
       // assert data of generate index function
@@ -62,7 +62,7 @@ describe("generateIndexTs", () => {
         __dirname,
         "./generateIndexTsTestFolderNormal"
       ),
-      generatedFileExt: "ts",
+      generateFileExt: "ts",
       ignoreDestinationPaths: []
     }).then(() => {
       // assert data of generate index function

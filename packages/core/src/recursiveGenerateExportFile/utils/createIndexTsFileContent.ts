@@ -1,20 +1,36 @@
 import * as path from "path";
 
-export const createIndexTsFileContent = (
-  fileNamesAndDirectoryNames: string[]
-): string => {
-  let fileContent = "";
+export const createIndexTsFileContent = ({
+  fileNames,
+  folderNames,
+  stripFileExts = ["js", "ts"]
+}: {
+  fileNames: string[];
+  folderNames: string[];
+  stripFileExts?: string[];
+}): string => {
+  const transformedFileName = fileNames.map(fileName => {
+    const parseFileName = path.parse(fileName);
+    const transformedFileExt = parseFileName.ext.substr(
+      1,
+      parseFileName.ext.length - 1
+    );
 
-  fileNamesAndDirectoryNames.forEach((fileNameAndDirectoryName, index) => {
-    const fileNameAndDirectoryNameStripExt = path.parse(
-      fileNameAndDirectoryName
-    ).name;
-    fileContent += `export * from './${fileNameAndDirectoryNameStripExt}'`;
+    if (stripFileExts.includes(transformedFileExt)) {
+      return parseFileName.name;
+    }
+    return fileName;
+  });
 
-    if (index !== fileNamesAndDirectoryNames.length - 1) {
+  const names = [...transformedFileName, ...folderNames];
+  const fileContent = names.reduce((fileContent, name, index) => {
+    fileContent += `export * from './${name}'`;
+    if (index < names.length - 1) {
       fileContent += "\n";
     }
-  });
+
+    return fileContent;
+  }, "");
 
   return fileContent;
 };

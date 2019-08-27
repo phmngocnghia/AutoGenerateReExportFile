@@ -3,18 +3,18 @@ import { isFolderContainExport } from "./isFolderContainExport";
 export const getFolderNamesInDestinationContainExport = async ({
   folderNames,
   destinationPath,
-  indexFileExt
+  indexstring
 }: {
   folderNames: string[];
   destinationPath: string;
-  indexFileExt: string;
+  indexstring: string;
 }): Promise<string[]> => {
   const folderNamePromiseObjects = folderNames.map(folderName => ({
     folderName,
     promiseCheckIfFileContainExport: isFolderContainExport({
       folderName,
       destinationPath,
-      indexFileExt
+      indexstring
     }).then(value => {
       return value;
     })

@@ -1,30 +1,31 @@
 // import { RecursiveGenerateReexportIndex } from "@types";
 import { recursiveTravelDirectory } from "./utils/recursiveTravelDirectory";
 import { generateIndexTs } from "./utils/generateIndexTs";
-
-interface RecursiveGenerateReexportIndex {
-  rootDirectory: string;
-  fileExts: string[];
-  generatedFileExt: string;
-  ignoreDestinationPaths?: RegExp[];
-}
+import { RecursiveGenerateReexportIndex } from "@types";
 
 export const recursiveGenerateExportFile = ({
   rootDirectory,
-  fileExts,
-  generatedFileExt,
-  ignoreDestinationPaths
-}) => {
+  ignoreDestinationPaths,
+  generateFileExt = "js",
+  fileExts = ["ts", "tsx", "js", "jsx"],
+  babelConfigPath,
+  stripFileExts = fileExts
+}: RecursiveGenerateReexportIndex) => {
   return recursiveTravelDirectory({
     rootDirectory,
     travelCallBack: ({ directory, childFiles, childDirectories }) => {
       generateIndexTs({
-        inputFileNames: childFiles,
+        inputFileNames: childFiles.filter(
+          childFild => !/index\..+$/g.test(childFild)
+        ),
         inputDirectoryNames: childDirectories,
         destinationPath: directory,
-        generatedFileExt,
+
         fileExts,
-        ignoreDestinationPaths
+        ignoreDestinationPaths,
+        babelConfigPath,
+        stripFileExts,
+        generateFileExt
       });
     }
   });
