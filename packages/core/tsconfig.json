@@ -10,5 +10,5 @@
     "**/__test__/**/es6BadSyntax.ts",
     "**/__test__/**/es6BadSyntax/index.ts",
     "**/__test__/**/emptyFile.ts"
-  ],
+  ]
 }
