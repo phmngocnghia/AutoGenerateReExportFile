@@ -15,7 +15,8 @@
     "test:coverage": "jestisValidPath.test --coverage",
     "lint:fix": "eslint './src/**/*.ts' --fix",
     "lint": "eslint './src/**/*.ts'",
-    "run:example": "node './examples/codegen.js'"
+    "run:example": "node './examples/codegen.js'",
+    "prepublishOnly": "npm run build && npm run build:declaration && npm run bundle:declaration"
   },
   "keywords": [
     "auto generate",
