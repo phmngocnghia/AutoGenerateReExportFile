@@ -2,6 +2,7 @@
   "name": "@autogen-export/core",
   "version": "1.0.1",
   "main": "./dist/index.js",
+  "types": "./dist/generateExportFile/index.d.ts",
   "author": "Nghia Pham <phmngocnghia@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -50,7 +51,4 @@
   "dependencies": {
     "dts-bundle": "^0.7.3"
   },
-  "typescript": {
-    "definition": "./dist/generateExportFile/index.d.ts"
-  }
 }

@@ -1,5 +1,6 @@
 import { Command, flags } from "@oclif/command";
 import { isValidPathSync } from "./validators/isValidFolderPathSync";
+import a from "@autogen-export/core";
 
 class AutogenExport extends Command {
   static description = "describe the command here";
