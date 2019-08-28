@@ -1,6 +1,6 @@
 {
   "name": "@autogen-export/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/index.js",
   "author": "Nghia Pham <phmngocnghia@gmail.com>",
   "license": "MIT",
@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build:declaration": "tsc --project './tsconfig-build-declaration.json' --declaration --outdir './dist' --emitDeclarationOnly",
+    "bundle:declaration": "node './build-types.js'",
     "build": "webpack --config-file './webpack.config.js'",
     "test": "jest --watch",
     "test:coverage": "jestisValidPath.test --coverage",
@@ -46,5 +47,8 @@
   },
   "dependencies": {
     "dts-bundle": "^0.7.3"
+  },
+  "typescript": {
+    "definition": "./dist/generateExportFile/index.d.ts"
   }
 }
