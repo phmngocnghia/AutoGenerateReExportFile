@@ -1,6 +1,6 @@
-var dts = require("dts-bundle");
-
-dts.bundle({
-  name: "index",
-  main: "dist/generateExportFile/index.d.ts"
+require("dts-generator").default({
+  name: "package-name",
+  project: "/path/to/package-directory",
+  out: "package-name.d.ts",
+  removeSource: true
 });

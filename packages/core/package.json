@@ -1,24 +1,24 @@
 {
   "name": "@autogen-export/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./dist/index.js",
   "types": "./dist/generateExportFile/index.d.ts",
   "author": "Nghia Pham <phmngocnghia@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/packages/core" 
+    "url": "https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/packages/core"
   },
   "scripts": {
     "build:declaration": "tsc --project './tsconfig-build-declaration.json' --declaration --outdir './dist' --emitDeclarationOnly",
-    "bundle:declaration": "node './build-types.js'",
     "build": "webpack --config-file './webpack.config.js'",
     "test": "jest --watch",
-    "test:coverage": "jestisValidPath.test --coverage",
+    "test:coverage": "jest --coverage",
     "lint:fix": "eslint './src/**/*.ts' --fix",
     "lint": "eslint './src/**/*.ts'",
-    "run:example": "node './examples/codegen.js'",
-    "prepublishOnly": "npm run build && npm run build:declaration && npm run bundle:declaration"
+    "run:example": "yarn clean:example && node './example'",
+    "clean:example": "find './example' | grep -E 'index.ts' | xargs -I % rm %",
+    "prepublishOnly": "npm run build && npm run build:declaration"
   },
   "keywords": [
     "auto generate",
@@ -49,6 +49,7 @@
     "webpack-notifier": "^1.8.0"
   },
   "dependencies": {
-    "dts-bundle": "^0.7.3"
-  },
+    "dts-bundle": "^0.7.3",
+    "dts-generator": "^3.0.0"
+  }
 }

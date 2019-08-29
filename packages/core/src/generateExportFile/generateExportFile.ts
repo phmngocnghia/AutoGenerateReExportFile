@@ -1,6 +1,6 @@
 import { travelDirectory } from "./utils/travelDirectory";
 import { generateIndexTs } from "./utils/generateIndexTs";
-import { RecursiveGenerateReexportIndex } from "@types";
+import { RecursiveGenerateReexportIndex } from "../types";
 
 export const generateExportFile = ({
   rootDirectory,

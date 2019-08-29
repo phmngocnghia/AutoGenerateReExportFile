@@ -1,6 +1,6 @@
 import { Command, flags } from "@oclif/command";
 import { isValidPathSync } from "./validators/isValidFolderPathSync";
-import a from "@autogen-export/core";
+import { recursiveGenerateExportFile } from "@autogen-export/core";
 
 class AutogenExport extends Command {
   static description = "describe the command here";
@@ -23,13 +23,18 @@ class AutogenExport extends Command {
 
   async run() {
     const { args } = this.parse(AutogenExport);
-
     const { path } = args;
-    // const { recursive } = flags;
 
     if (!isValidPathSync(path)) {
       this.error("Path is not a folder or invalid path");
       this.exit();
+    }
+
+    const { recursive } = args;
+    if (recursive) {
+      // recursive generate re-export
+      // recursiveGenerateExportFile({});
+      return;
     }
   }
 }
