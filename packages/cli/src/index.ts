@@ -1,6 +1,9 @@
 import { Command, flags } from "@oclif/command";
 import { isValidPathSync } from "./validators/isValidFolderPathSync";
-import { recursiveGenerateExportFile } from "@autogen-export/core";
+import {
+  recursiveGenerateExportFile,
+  generateExportFile
+} from "@autogen-export/core";
 
 class AutogenExport extends Command {
   static description = "describe the command here";
@@ -15,28 +18,89 @@ class AutogenExport extends Command {
 
   static args = [
     {
-      name: "path",
+      name: "rootDirectory",
       required: true,
-      description: "path to start generate export file"
+      description: "path use for generatinghhh export file"
+    },
+    {
+      name: "babelConfigPath",
+      description: "If not specify. Use babel default config"
+    },
+    {
+      name: "stripFileExts",
+      description: "File exts which match stripFileExts will be striped ext",
+      default: "ts,tsx,js,jsx"
+    },
+    {
+      name: "fileExts",
+      description: "Child file extensions that will be re-exported",
+      default: "ts,tsx,js,jsx"
+    },
+    {
+      name: "ignoreDestinationRegexs",
+      description:
+        "Path which matched regex will be ignored (use in recursive mode)",
+      default: undefined
+    },
+    {
+      name: "generatedFileExt",
+      description:
+        "Extension of generated file. Generated file name will be index",
+      default: "ts"
     }
   ];
 
   async run() {
-    const { args } = this.parse(AutogenExport);
-    const { path } = args;
+    const { args, flags } = this.parse(AutogenExport);
 
-    if (!isValidPathSync(path)) {
-      this.error("Path is not a folder or invalid path");
-      this.exit();
+    const {
+      rootDirectory,
+      stripFileExts,
+      fileExts,
+      ignoreDestinationRegexs,
+      babelConfigPath,
+      generatedFileExt
+    } = args;
+
+    let transformedIgnoreDestinationRegexs: RegExp[] | undefined;
+
+    if (ignoreDestinationRegexs && ignoreDestinationRegexs.length > 0) {
+      transformedIgnoreDestinationRegexs = ignoreDestinationRegexs
+        .split(",")
+        .map(
+          (ignoreDestinationRegex: string) => new RegExp(ignoreDestinationRegex)
+        );
+    } else {
+      transformedIgnoreDestinationRegexs = [];
     }
 
-    const { recursive } = args;
+    const { recursive } = flags;
+
+    // if (!isValidPathSync(rootDirectory)) {
+    //   this.error(new Error("Root directory path is invalid"));
+    // }
+
     if (recursive) {
-      // recursive generate re-export
-      // recursiveGenerateExportFile({});
+      recursiveGenerateExportFile({
+        rootDirectory,
+        ignoreDestinationRegexs: transformedIgnoreDestinationRegexs,
+        fileExts: fileExts.split(","),
+        stripFileExts: stripFileExts.split(","),
+        generatedFileExt,
+        babelConfigPath
+      });
       return;
     }
+
+    generateExportFile({
+      rootDirectory,
+      ignoreDestinationRegexs: transformedIgnoreDestinationRegexs,
+      fileExts: fileExts.split(","),
+      stripFileExts: stripFileExts.split(","),
+      generatedFileExt,
+      babelConfigPath
+    });
   }
 }
 
-export = AutogenExport;
+export default AutogenExport;

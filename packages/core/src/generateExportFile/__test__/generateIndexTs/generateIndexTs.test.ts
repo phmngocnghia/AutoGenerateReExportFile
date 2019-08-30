@@ -3,7 +3,7 @@ import { generateIndexTs } from "../../utils/generateIndexTs";
 import { readFile } from "fs";
 
 describe("generateIndexTs", () => {
-  it("It should ignore if folder name inside ignoreDestinationPaths", done => {
+  it("It should ignore if folder name inside ignoreDestinationRegexs", done => {
     // execute
     generateIndexTs({
       inputFileNames: ["resolvableFile.ts", "ts.ts", "js.js", "css.css"],
@@ -13,8 +13,8 @@ describe("generateIndexTs", () => {
         __dirname,
         "./generateIndexTsTestFolderEmpty"
       ),
-      generateFileExt: "ts",
-      ignoreDestinationPaths: [/generateIndexTsTestFolderEmpty/]
+      generatedFileExt: "ts",
+      ignoreDestinationRegexs: [/generateIndexTsTestFolderEmpty/]
     }).then(() => {
       // assert data of generate index function
       readFile(
@@ -37,8 +37,8 @@ describe("generateIndexTs", () => {
         __dirname,
         "./generateIndexTsTestFolderEmpty/"
       ),
-      generateFileExt: "ts",
-      ignoreDestinationPaths: []
+      generatedFileExt: "ts",
+      ignoreDestinationRegexs: []
     }).then(() => {
       // assert data of generate index function
       readFile(
@@ -62,8 +62,8 @@ describe("generateIndexTs", () => {
         __dirname,
         "./generateIndexTsTestFolderNormal"
       ),
-      generateFileExt: "ts",
-      ignoreDestinationPaths: []
+      generatedFileExt: "ts",
+      ignoreDestinationRegexs: []
     }).then(() => {
       // assert data of generate index function
       readFile(
