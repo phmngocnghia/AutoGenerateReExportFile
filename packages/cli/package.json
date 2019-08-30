@@ -15,6 +15,8 @@
   },
   "devDependencies": {
     "@autogen-export/core": "lastest",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-typescript": "^7.3.3",
     "@oclif/test": "^1.2.5",
     "@types/jest": "^24.0.18",
     "@types/node": "^10",
@@ -44,7 +46,7 @@
   "scripts": {
     "prepack": "rm -rf lib && tsc -b",
     "run:cmd": "./bin/run",
-    "test": "jest --watch",
+    "test": "jest --watch -t 'recursiveGenerateExportFileTest'",
     "test:coverage": "jest --coverage"
   },
   "types": "lib/index.d.ts"
