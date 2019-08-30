@@ -28,7 +28,41 @@ describe("Auto Gen Export Command", () => {
     it("Throw error if regular expression is invalid", () => {});
   });
 
-  // describe("array value", () => {});
+  describe("array value", () => {
+    const generateExportFileDefaultInput: RecursiveGenerateReexportIndex = {
+      stripFileExts: ["vue", "ts"],
+      fileExts: ["vue", "ts"],
+      rootDirectory: path.resolve(__dirname, "./integration/"),
+      babelConfigPath: path.resolve(__dirname, "./.babelrc"),
+      generatedFileExt: "js",
+      ignoreDestinationRegexs: [/vue/]
+    };
+
+    const cliInput = [
+      path.resolve(__dirname, "./integration/"),
+      path.resolve(__dirname, "./.babelrc"),
+      "vue,ts",
+      "vue,ts",
+      "vue",
+      "js"
+    ];
+
+    it("called generated export file with proper value", async () => {
+      await AutoGenExportCommand.run(cliInput);
+      expect(generateExportFile).toBeCalledTimes(1);
+      expect(generateExportFile).toHaveBeenLastCalledWith(
+        generateExportFileDefaultInput
+      );
+    });
+
+    it("called recrusive generated export file with proper value", async () => {
+      await AutoGenExportCommand.run(["-r", ...cliInput]);
+      expect(recursiveGenerateExportFile).toBeCalledTimes(1);
+      expect(recursiveGenerateExportFile).toHaveBeenLastCalledWith(
+        generateExportFileDefaultInput
+      );
+    });
+  });
 
   describe("Passed value", () => {
     const generateExportFileDefaultInput: RecursiveGenerateReexportIndex = {

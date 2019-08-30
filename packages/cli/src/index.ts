@@ -76,9 +76,9 @@ class AutogenExport extends Command {
 
     const { recursive } = flags;
 
-    // if (!isValidPathSync(rootDirectory)) {
-    //   this.error(new Error("Root directory path is invalid"));
-    // }
+    if (!isValidPathSync(rootDirectory)) {
+      this.error(new Error("Root directory path is invalid"));
+    }
 
     if (recursive) {
       recursiveGenerateExportFile({
