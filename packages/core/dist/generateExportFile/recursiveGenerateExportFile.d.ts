@@ -1,8 +1,8 @@
 import { RecursiveGenerateReexportIndex } from "../types";
 export declare const recursiveGenerateExportFile: ({
   rootDirectory,
-  ignoreDestinationPaths,
-  generateFileExt,
+  ignoreDestinationRegexs,
+  generatedFileExt,
   fileExts,
   babelConfigPath,
   stripFileExts

@@ -3,8 +3,8 @@ export interface GenerateIndexTsParams {
   inputDirectoryNames: string[];
   inputFileNames: string[];
   fileExts: string[];
-  generateFileExt: string;
-  ignoreDestinationPaths: RegExp[];
+  generatedFileExt: string;
+  ignoreDestinationRegexs: RegExp[];
   babelConfigPath?: string;
   stripFileExts?: string[];
 }

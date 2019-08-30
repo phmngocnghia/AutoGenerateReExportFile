@@ -4,8 +4,8 @@ import { RecursiveGenerateReexportIndex } from "../types";
 
 export const recursiveGenerateExportFile = ({
   rootDirectory,
-  ignoreDestinationPaths,
-  generateFileExt = "js",
+  ignoreDestinationRegexs = [],
+  generatedFileExt = "js",
   fileExts = ["ts", "tsx", "js", "jsx"],
   babelConfigPath,
   stripFileExts = fileExts
@@ -19,12 +19,11 @@ export const recursiveGenerateExportFile = ({
         ),
         inputDirectoryNames: childDirectories,
         destinationPath: directory,
-
         fileExts,
-        ignoreDestinationPaths,
+        ignoreDestinationRegexs,
         babelConfigPath,
         stripFileExts,
-        generateFileExt
+        generatedFileExt
       });
     }
   });

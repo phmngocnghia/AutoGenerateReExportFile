@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/11.7.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js add --dev dts-generator
+  /usr/local/Cellar/node/11.7.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js add --dev eslint
 
 PATH: 
   /usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin
@@ -36,7 +36,7 @@ npm manifest:
     "license": "MIT",
     "repository": {
       "type": "git",
-      "url": "https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/packages/core" 
+      "url": "https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/packages/core"
     },
     "scripts": {
       "build:declaration": "tsc --project './tsconfig-build-declaration.json' --declaration --outdir './dist' --emitDeclarationOnly",
@@ -78,7 +78,8 @@ npm manifest:
       "webpack-notifier": "^1.8.0"
     },
     "dependencies": {
-      "dts-bundle": "^0.7.3"
+      "dts-bundle": "^0.7.3",
+      "dts-generator": "^3.0.0"
     }
   }
 

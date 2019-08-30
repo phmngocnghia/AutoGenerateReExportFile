@@ -2,7 +2,7 @@ export interface RecursiveGenerateReexportIndex {
   rootDirectory: string;
   fileExts?: string[];
   stripFileExts?: string[];
-  generateFileExt?: string;
-  ignoreDestinationPaths?: RegExp[];
+  generatedFileExt?: string;
+  ignoreDestinationRegexs?: RegExp[];
   babelConfigPath?: string;
 }

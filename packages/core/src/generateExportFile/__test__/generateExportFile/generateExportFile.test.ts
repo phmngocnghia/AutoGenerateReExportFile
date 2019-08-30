@@ -3,10 +3,10 @@ import { resolve } from "path";
 import { readFileSync, readFile } from "fs";
 
 describe("generateExportFileTest", () => {
-  it("Should ignore folder if ignoreDestinationPaths is specify", async done => {
+  it("Should ignore folder if ignoreDestinationRegexs is specify", async done => {
     await generateExportFile({
       rootDirectory: resolve(__dirname, "./generateExportFileTestFolderIgnore"),
-      ignoreDestinationPaths: [/Empty/]
+      ignoreDestinationRegexs: [/Empty/]
     });
     const testCases = [
       {
@@ -61,7 +61,7 @@ describe("generateExportFileTest", () => {
     await generateExportFile({
       fileExts: ["ts"],
       rootDirectory: resolve(__dirname, "./generateExportFileTestFolder"),
-      ignoreDestinationPaths: []
+      ignoreDestinationRegexs: []
     });
     const testCases = [
       {

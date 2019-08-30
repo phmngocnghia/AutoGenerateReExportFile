@@ -1,5 +1,4 @@
 import { parseSync } from "@babel/core";
-import { resolve } from "path";
 import traverse from "@babel/traverse";
 import * as t from "@babel/types";
 import * as path from "path";
@@ -11,7 +10,7 @@ import { readFileSync } from "fs";
 export const isFileContainExport = ({
   fileName,
   destinationPath,
-  babelConfigPath = resolve(process.cwd(), "./.babelrc")
+  babelConfigPath
 }: {
   destinationPath: string;
   fileName: string;
@@ -22,11 +21,20 @@ export const isFileContainExport = ({
       const filePath = path.resolve(destinationPath, fileName);
       const fileContent = readFileSync(filePath).toString();
 
-      const ast = parseSync(fileContent, {
-        sourceType: "module",
-        filename: fileName,
-        configFile: babelConfigPath
-      });
+      /**Test Reminder */
+      let ast = null;
+      if (!babelConfigPath) {
+        ast = parseSync(fileContent, {
+          sourceType: "module",
+          filename: fileName,
+          configFile: babelConfigPath
+        });
+      } else {
+        ast = parseSync(fileContent, {
+          sourceType: "module",
+          filename: fileName
+        });
+      }
 
       // this thing run synchoronously
       // @ts-ignore

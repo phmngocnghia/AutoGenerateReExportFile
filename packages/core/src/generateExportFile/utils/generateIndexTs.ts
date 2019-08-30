@@ -12,14 +12,14 @@ export const generateIndexTs = async ({
   stripFileExts,
   inputDirectoryNames,
   inputFileNames,
-  generateFileExt,
+  generatedFileExt,
   destinationPath,
-  ignoreDestinationPaths,
+  ignoreDestinationRegexs,
   babelConfigPath
 }: GenerateIndexTsParams) => {
   // Ignore destination match destinations
   if (
-    ignoreDestinationPaths.some(ignoreDestinationPath =>
+    ignoreDestinationRegexs.some(ignoreDestinationPath =>
       ignoreDestinationPath.test(destinationPath)
     )
   ) {
@@ -40,7 +40,7 @@ export const generateIndexTs = async ({
     getFolderNamesInDestinationContainExport({
       folderNames: inputDirectoryNames,
       destinationPath,
-      indexstring: generateFileExt
+      indexstring: generatedFileExt
     })
   ]);
 
@@ -56,7 +56,7 @@ export const generateIndexTs = async ({
   }
 
   // Print generated file name with success color
-  const indexFilePath = path.join(destinationPath, `index.${generateFileExt}`);
+  const indexFilePath = path.join(destinationPath, `index.${generatedFileExt}`);
   console.log(`Generate ${indexFilePath}`);
 
   // create index file

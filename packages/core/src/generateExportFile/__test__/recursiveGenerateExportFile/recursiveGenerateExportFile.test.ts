@@ -3,13 +3,13 @@ import { resolve } from "path";
 import { readFileSync, readFile } from "fs";
 
 describe("recursiveGenerateExportFileTest", () => {
-  it("Should ignore folder if ignoreDestinationPaths is specify", async done => {
+  it("Should ignore folder if ignoreDestinationRegexs is specify", async done => {
     await recursiveGenerateExportFile({
       rootDirectory: resolve(
         __dirname,
         "./recursiveGenerateExportFileTestFolderIgnore"
       ),
-      ignoreDestinationPaths: [/Empty/]
+      ignoreDestinationRegexs: [/Empty/]
     });
     const testCases = [
       {
@@ -70,7 +70,7 @@ export * from './es6NamedExport'`
         __dirname,
         "./recursiveGenerateExportFileTestFolder"
       ),
-      ignoreDestinationPaths: []
+      ignoreDestinationRegexs: []
     });
     const testCases = [
       {
