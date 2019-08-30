@@ -17,10 +17,9 @@ export const isFileContainExport = ({
   babelConfigPath?: string;
 }): Promise<string | null> => {
   return new Promise(resolve => {
+    const filePath = path.resolve(destinationPath, fileName);
+    const fileContent = readFileSync(filePath).toString();
     try {
-      const filePath = path.resolve(destinationPath, fileName);
-      const fileContent = readFileSync(filePath).toString();
-
       /**Test Reminder */
       let ast = null;
       if (!babelConfigPath) {
@@ -69,6 +68,8 @@ export const isFileContainExport = ({
       });
       resolve(null);
     } catch (error) {
+      console.log(`Fail to parse file "${filePath}". Err: "${error}"`);
+
       resolve(null);
     }
   });
