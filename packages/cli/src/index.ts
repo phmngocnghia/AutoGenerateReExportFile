@@ -1,9 +1,14 @@
 import { Command, flags } from "@oclif/command";
 import { isValidPathSync } from "./validators/isValidFolderPathSync";
+import { resolve } from "path";
+
 import {
   recursiveGenerateExportFile,
   generateExportFile
 } from "@autogen-export/core";
+
+import { getRegenerateExportFileDirectoryPath } from "./utils/getRegenerateExportFileDirectoryPath";
+import { watch as chokidarWatch } from "chokidar";
 
 class AutogenExport extends Command {
   static description = "describe the command here";
@@ -12,6 +17,11 @@ class AutogenExport extends Command {
     recursive: flags.boolean({
       char: "r",
       description: "generate recursively",
+      default: false
+    }),
+    watch: flags.boolean({
+      char: "w",
+      description: "watch for file changed and re-generate re-export file",
       default: false
     })
   };
@@ -74,7 +84,7 @@ class AutogenExport extends Command {
       transformedIgnoreDestinationRegexs = [];
     }
 
-    const { recursive } = flags;
+    const { recursive, watch } = flags;
 
     if (!isValidPathSync(rootDirectory)) {
       this.error(new Error("Root directory path is invalid"));
@@ -89,18 +99,42 @@ class AutogenExport extends Command {
         generatedFileExt,
         babelConfigPath
       });
-      return;
+    } else {
+      generateExportFile({
+        rootDirectory,
+        ignoreDestinationRegexs: transformedIgnoreDestinationRegexs,
+        fileExts: fileExts.split(","),
+        stripFileExts: stripFileExts.split(","),
+        generatedFileExt,
+        babelConfigPath
+      });
     }
 
-    generateExportFile({
-      rootDirectory,
-      ignoreDestinationRegexs: transformedIgnoreDestinationRegexs,
-      fileExts: fileExts.split(","),
-      stripFileExts: stripFileExts.split(","),
-      generatedFileExt,
-      babelConfigPath
-    });
+    if (watch) {
+      console.log("watch mode detected. Proceed to watching for file change");
+      chokidarWatch(resolve(__dirname, rootDirectory), {}).on("all", path => {
+        const generateIndexPaths = getRegenerateExportFileDirectoryPath({
+          rootDirectoryPath: args.rootDirectory,
+          directoryPathOfFileChange: path
+        });
+
+        for (let path in generateIndexPaths) {
+          generateExportFile({
+            rootDirectory: path,
+            ignoreDestinationRegexs: transformedIgnoreDestinationRegexs,
+            fileExts: fileExts.split(","),
+            stripFileExts: stripFileExts.split(","),
+            generatedFileExt,
+            babelConfigPath
+          });
+        }
+
+        console.log(
+          "Detect file changed at path. Proceed to re-generate index file"
+        );
+      });
+    }
   }
 }
 
-export default AutogenExport;
+export = AutogenExport;
