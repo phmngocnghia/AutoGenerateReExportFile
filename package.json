@@ -16,5 +16,9 @@
     "lerna": "^3.16.4",
     "prettier": "^1.18.2",
     "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@types/rimraf": "^2.0.2",
+    "rimraf": "^3.0.0"
   }
 }

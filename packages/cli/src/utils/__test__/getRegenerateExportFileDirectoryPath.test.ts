@@ -1,5 +1,4 @@
 import { getRegenerateExportFileDirectoryPath } from "../getRegenerateExportFileDirectoryPath";
-
 describe("getRegenerateExportFileDirectoryPath", () => {
   it("Work correctly", () => {
     const input = {

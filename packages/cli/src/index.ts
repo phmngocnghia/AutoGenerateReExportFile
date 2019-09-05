@@ -1,19 +1,27 @@
 import { Command, flags } from "@oclif/command";
+import { createIgnoreRegexString } from "./utils/createIgnoreRegexString";
 import { isValidPathSync } from "./validators/isValidFolderPathSync";
-import { resolve } from "path";
+import { watchDirHandler } from "./utils/watchDirHandler";
+import { parseConfigFile } from "./utils/parseConfigFile";
 
 import {
   recursiveGenerateExportFile,
   generateExportFile
 } from "@autogen-export/core";
 
-import { getRegenerateExportFileDirectoryPath } from "./utils/getRegenerateExportFileDirectoryPath";
+import { RecursiveGenerateReexportIndex } from "@autogen-export/core/dist/types/recursiveGenerateReexportIndex";
 import { watch as chokidarWatch } from "chokidar";
+import { resolve } from "path";
 
 class AutogenExport extends Command {
   static description = "describe the command here";
 
   static flags = {
+    cfg: flags.boolean({
+      char: "c",
+      description:
+        "specify configuration file. If specifiied, all agurments except directory will be ignored "
+    }),
     recursive: flags.boolean({
       char: "r",
       description: "generate recursively",
@@ -29,8 +37,7 @@ class AutogenExport extends Command {
   static args = [
     {
       name: "rootDirectory",
-      required: true,
-      description: "path use for generatinghhh export file"
+      description: "path use for generate export file"
     },
     {
       name: "babelConfigPath",
@@ -62,7 +69,9 @@ class AutogenExport extends Command {
 
   async run() {
     const { args, flags } = this.parse(AutogenExport);
+    const { recursive, watch, cfg } = flags;
 
+    // test
     const {
       rootDirectory,
       stripFileExts,
@@ -70,9 +79,15 @@ class AutogenExport extends Command {
       ignoreDestinationRegexs,
       babelConfigPath,
       generatedFileExt
-    } = args;
+    } = cfg ? parseConfigFile() : args;
 
-    let transformedIgnoreDestinationRegexs: RegExp[] | undefined;
+    if (!cfg && !rootDirectory) {
+      throw new Error(
+        "If not use config file then root directoy must be specify"
+      );
+    }
+
+    let transformedIgnoreDestinationRegexs: RegExp[];
 
     if (ignoreDestinationRegexs && ignoreDestinationRegexs.length > 0) {
       transformedIgnoreDestinationRegexs = ignoreDestinationRegexs
@@ -84,55 +99,60 @@ class AutogenExport extends Command {
       transformedIgnoreDestinationRegexs = [];
     }
 
-    const { recursive, watch } = flags;
-
     if (!isValidPathSync(rootDirectory)) {
       this.error(new Error("Root directory path is invalid"));
     }
 
+    const generateExportFileParams: RecursiveGenerateReexportIndex = {
+      rootDirectory,
+      ignoreDestinationRegexs: transformedIgnoreDestinationRegexs,
+      fileExts: fileExts.split(","),
+      stripFileExts: stripFileExts.split(","),
+      generatedFileExt,
+      babelConfigPath
+    };
+
     if (recursive) {
-      recursiveGenerateExportFile({
-        rootDirectory,
-        ignoreDestinationRegexs: transformedIgnoreDestinationRegexs,
-        fileExts: fileExts.split(","),
-        stripFileExts: stripFileExts.split(","),
-        generatedFileExt,
-        babelConfigPath
-      });
+      recursiveGenerateExportFile(generateExportFileParams);
     } else {
-      generateExportFile({
-        rootDirectory,
-        ignoreDestinationRegexs: transformedIgnoreDestinationRegexs,
-        fileExts: fileExts.split(","),
-        stripFileExts: stripFileExts.split(","),
-        generatedFileExt,
-        babelConfigPath
-      });
+      generateExportFile(generateExportFileParams);
     }
+
+    const ignoreGenerateFileRegexString = createIgnoreRegexString({
+      generatedFileExt,
+      directoryPath: rootDirectory
+    });
+
+    const ignoreGenerateFileRegex = new RegExp(ignoreGenerateFileRegexString);
 
     if (watch) {
       console.log("watch mode detected. Proceed to watching for file change");
-      chokidarWatch(resolve(__dirname, rootDirectory), {}).on("all", path => {
-        const generateIndexPaths = getRegenerateExportFileDirectoryPath({
-          rootDirectoryPath: args.rootDirectory,
-          directoryPathOfFileChange: path
+      const absoluteRootDirectory = resolve(process.cwd(), rootDirectory);
+
+      const _watchDirHandler = (path: string) => {
+        watchDirHandler({
+          path,
+          generateExportFileParams
         });
 
-        for (let path in generateIndexPaths) {
-          generateExportFile({
-            rootDirectory: path,
-            ignoreDestinationRegexs: transformedIgnoreDestinationRegexs,
-            fileExts: fileExts.split(","),
-            stripFileExts: stripFileExts.split(","),
-            generatedFileExt,
-            babelConfigPath
-          });
+        // Test purpose
+        if ((global as any).waitForWatchDirHandlerCalled) {
+          (global as any).waitForWatchDirHandlerCalled();
         }
+      };
 
-        console.log(
-          "Detect file changed at path. Proceed to re-generate index file"
-        );
-      });
+      const watcher = chokidarWatch(absoluteRootDirectory, {
+        ignoreInitial: true,
+        ignored: [ignoreGenerateFileRegex]
+      })
+        .on("add", _watchDirHandler)
+        .on("change", _watchDirHandler)
+        .on("unlink", _watchDirHandler)
+        .on("unlinkDir", _watchDirHandler);
+
+      if (process.env.NODE_ENV === "test") {
+        (global as any).watcher = watcher;
+      }
     }
   }
 }

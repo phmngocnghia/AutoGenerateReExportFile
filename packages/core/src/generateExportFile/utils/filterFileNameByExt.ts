@@ -10,6 +10,7 @@ export const filterFileNameByExt = ({
       .extname(fileName)
       .split(".")
       .pop();
+
     return fileExts.includes(string);
   });
 

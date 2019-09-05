@@ -1,0 +1,2 @@
+/* eslint-disable */
+const a = "";
