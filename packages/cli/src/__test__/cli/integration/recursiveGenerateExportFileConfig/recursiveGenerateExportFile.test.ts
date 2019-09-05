@@ -2,14 +2,9 @@ import AutoGenExportCommand from "../../../../index";
 import { resolve } from "path";
 import { readFile } from "fs";
 
-describe("recursiveGenerateExportFileTest", () => {
+describe("recursiveGenerateExportFileTest- Config file", () => {
   it("work correctly", async done => {
-    const cliInput = [
-      resolve(__dirname, "./recursiveGenerateExportFileTestFolder/"),
-      resolve(__dirname, "./.babelrc")
-    ];
-
-    await AutoGenExportCommand.run(["-r", ...cliInput]);
+    await AutoGenExportCommand.run(["-c"]);
 
     const testCases = [
       {

@@ -25,7 +25,15 @@ describe("Auto Gen Export Command", () => {
       }
     });
 
-    it("Throw error if regular expression is invalid", () => {});
+    it("Throw error if root directory not specify when specify recursive flag = true ", async () => {
+      try {
+        await AutoGenExportCommand.run(["-r"]);
+      } catch (err) {
+        expect(err.message).toBe(
+          "If not use config file then root directoy must be specify"
+        );
+      }
+    });
   });
 
   describe("array value", () => {
