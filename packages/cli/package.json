@@ -1,18 +1,18 @@
 {
   "name": "@autogen-export/cli",
-  "version": "1.0.0",
+  "version": "3.0.1",
   "author": "Nghia Pham @phmngocnghia",
   "bin": {
     "@autogen-export": "./bin/run"
   },
   "bugs": "https://github.com/phmngocnghia/AutoGenerateReExportFile/issues",
   "dependencies": {
-    "@autogen-export/core": "^1.0.0",
+    "@autogen-export/core": "^3.0.1",
+    "@babel/core": "^7.5.5",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
-    "tslib": "^1",
-    "@babel/core": "^7.5.5"
+    "tslib": "^1"
   },
   "devDependencies": {
     "@autogen-export/core": "lastest",
