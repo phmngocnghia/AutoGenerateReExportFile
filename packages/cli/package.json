@@ -48,7 +48,6 @@
   "scripts": {
     "prepack": "rm -rf lib && tsc -b",
     "run:cmd": "./bin/run -r -w './example'",
-    "run:example": "yarn run:cmd",
     "test": "jest --watch",
     "test:coverage": "jest --coverage"
   },
