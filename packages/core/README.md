@@ -1,10 +1,10 @@
-**Installation**
+**INSTALLATION:**
 
 ```npm install --dev @autogenerate-export/core```
 
 ```yarn add --dev @autogenerate-export/core```
 
-**Example Code:**
+**EXAMPLE CODE:**
 ```
 const path = require("path");
 
@@ -19,12 +19,12 @@ recursiveGenerateExportFile({
 ```
 
 
-**Introduction:**
+**INTRODUCTION:**
 This's a core package of Auto-Generate-Re-export-File package. This package provides core functionalities such as generateRexportFile of a specified folder.
 
 Two primary exported APIs was: recursiveGenerateExportFile and generateExportFile.
 
-**It's types:**
+**USAGE:**
 ```
 export interface RecursiveGenerateReexportIndex {
   rootDirectory: string;
@@ -36,7 +36,7 @@ export interface RecursiveGenerateReexportIndex {
 }
 ```
 
-**Meanings:**
+**PARAMETERS:**
 -  **rootDirectory**:string  Directory to start  generating re-export file
 -   **ignoreDestinationRegexs**: Folders whose name matched these regexes will be ignored when generating re-export file
 -   **generatedFileExt**: Extension of generate re-exort file
@@ -44,5 +44,5 @@ export interface RecursiveGenerateReexportIndex {
 -   **babelConfigPath**: babel config path that will be used by babel core to parse It's syntanx. Not required
 -   **stripFileExts** = fileExts
 
-**Example**
+**EXAMPLE**
 All executable examples is placed in an example folder.
