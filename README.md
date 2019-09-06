@@ -13,5 +13,8 @@ This repository applies mono repo architecture. Each package resides in "package
 * CLI: A friendlier CommandLineInterface for our end users.
   * https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/packages/core
 
-# CODE OF CONDUCT:
+# Code of conduct:
 PR must have a test files.
+
+# Foot notes:
+I'm open to any suggestions: add a new functionality request. If you have any ideas. Feel free to make A PR.
