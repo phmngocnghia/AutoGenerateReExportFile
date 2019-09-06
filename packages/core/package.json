@@ -1,6 +1,6 @@
 {
   "name": "@autogen-export/core",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/generateExportFile/index.d.ts",
   "author": "Nghia Pham <phmngocnghia@gmail.com>",

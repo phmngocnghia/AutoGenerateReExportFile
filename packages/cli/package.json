@@ -1,13 +1,13 @@
 {
   "name": "@autogen-export/cli",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "author": "Nghia Pham @phmngocnghia",
   "bin": {
     "@autogen-export": "./bin/run"
   },
   "bugs": "https://github.com/phmngocnghia/AutoGenerateReExportFile/issues",
   "dependencies": {
-    "@autogen-export/core": "^1.0.2",
+    "@autogen-export/core": "^1.0.0",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
