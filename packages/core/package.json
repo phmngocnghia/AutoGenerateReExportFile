@@ -1,6 +1,6 @@
 {
   "name": "@autogen-export/core",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/generateExportFile/index.d.ts",
   "author": "Nghia Pham <phmngocnghia@gmail.com>",
@@ -51,5 +51,6 @@
     "webpack-dev-server": "^3.7.2",
     "webpack-node-externals": "^1.7.2",
     "webpack-notifier": "^1.8.0"
-  }
+  },
+  "gitHead": "ca4af158ff6fa0e63fbcbec97e3c588b0819f2b2"
 }

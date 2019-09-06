@@ -19,6 +19,10 @@
   "dependencies": {
     "@autogen-export/cli": "^1.0.2",
     "@types/rimraf": "^2.0.2",
+    "npm": "^6.11.3",
     "rimraf": "^3.0.0"
+  },
+  "scripts": {
+    "publish:all": "lerna publish from-package"
   }
 }
