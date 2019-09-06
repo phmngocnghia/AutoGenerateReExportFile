@@ -25,6 +25,9 @@
     "auto generate",
     "re-export file"
   ],
+  "dependencies": {
+    "@babel/core": "^7.5.5"
+  },
   "devDependencies": {
     "@babel/node": "^7.5.5",
     "@babel/parser": "^7.5.5",

@@ -1,30 +1,30 @@
 Arguments: 
-  /usr/local/Cellar/node/11.7.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js add --dev @autogen-export/cli
+  /usr/local/Cellar/node/12.10.0/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js add --dev @babel/core
 
 PATH: 
   /usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin
 
 Yarn version: 
-  1.13.0
+  1.17.3
 
 Node version: 
-  10.13.0
+  12.10.0
 
 Platform: 
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@babel/plugin-syntax-json-fileExts/-/plugin-syntax-json-fileExts-7.2.0.tgz: Request failed "404 Not Found"
-      at ResponseError.ExtendableBuiltin (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:702:66)
-      at new ResponseError (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:808:124)
-      at Request.<anonymous> (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:66325:16)
-      at Request.emit (events.js:182:13)
-      at Request.module.exports.Request.onRequestResponse (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:130274:10)
-      at ClientRequest.emit (events.js:187:15)
-      at HTTPParser.parserOnIncomingClient (_http_client.js:555:21)
-      at HTTPParser.parserOnHeadersComplete (_http_common.js:109:17)
-      at TLSSocket.socketOnData (_http_client.js:441:20)
-      at TLSSocket.emit (events.js:182:13)
+  Error: https://registry.yarnpkg.com/@babel/plugin-proposal-json-fileExts/-/plugin-proposal-json-fileExts-7.2.0.tgz: Request failed "404 Not Found"
+      at ResponseError.ExtendableBuiltin (/usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:696:66)
+      at new ResponseError (/usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:802:124)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:66900:16)
+      at Request.emit (events.js:209:13)
+      at Request.module.exports.Request.onRequestResponse (/usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:141341:10)
+      at ClientRequest.emit (events.js:209:13)
+      at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:583:27)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:115:17)
+      at TLSSocket.socketOnData (_http_client.js:456:22)
+      at TLSSocket.emit (events.js:209:13)
 
 npm manifest: 
   {
@@ -47,6 +47,7 @@ npm manifest:
       "typescript": "^3.5.3"
     },
     "dependencies": {
+      "@autogen-export/cli": "^1.0.2",
       "@types/rimraf": "^2.0.2",
       "rimraf": "^3.0.0"
     }
