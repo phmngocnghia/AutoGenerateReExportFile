@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/12.10.0/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js add --dev @babel/core
+  /usr/local/Cellar/node/12.10.0/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js add @autogen-export/cli
 
 PATH: 
   /usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@babel/plugin-proposal-json-fileExts/-/plugin-proposal-json-fileExts-7.2.0.tgz: Request failed "404 Not Found"
+  Error: https://registry.yarnpkg.com/@babel/plugin-syntax-json-fileExts/-/plugin-syntax-json-fileExts-7.2.0.tgz: Request failed "404 Not Found"
       at ResponseError.ExtendableBuiltin (/usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:696:66)
       at new ResponseError (/usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:802:124)
       at Request.<anonymous> (/usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:66900:16)
@@ -34,7 +34,6 @@ npm manifest:
     "author": "Nghia Pham <phmngocnghia@gmail.com>",
     "license": "MIT",
     "devDependencies": {
-      "@babel/core": "^7.5.5",
       "@babel/preset-env": "^7.5.4",
       "@babel/preset-typescript": "^7.3.3",
       "@typescript-eslint/eslint-plugin": "^1.12.0",
@@ -49,7 +48,11 @@ npm manifest:
     "dependencies": {
       "@autogen-export/cli": "^1.0.2",
       "@types/rimraf": "^2.0.2",
+      "npm": "^6.11.3",
       "rimraf": "^3.0.0"
+    },
+    "scripts": {
+      "publish:all": "lerna publish from-package"
     }
   }
 
