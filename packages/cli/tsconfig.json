@@ -1,4 +1,9 @@
 {
+  "linterOptions": {
+    "exclude": [
+      "node_modules"
+    ]
+  },
   "compilerOptions": {
     "esModuleInterop": true,
     "declaration": true,
@@ -11,5 +16,11 @@
   },
   "include": [
     "src/**/*"
-  ]
+  ],
+  "exclude": [
+    "**/es6BadSyntax.ts",
+    "**/index.ts",
+    "**/emptyFile.ts",
+    "node_modules"
+  ],
 }
