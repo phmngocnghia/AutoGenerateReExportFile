@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/11.7.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js add --dev rimraf
+  /usr/local/Cellar/node/11.7.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js add --dev @autogen-export/cli
 
 PATH: 
   /usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin
@@ -47,6 +47,7 @@ npm manifest:
       "typescript": "^3.5.3"
     },
     "dependencies": {
+      "@types/rimraf": "^2.0.2",
       "rimraf": "^3.0.0"
     }
   }
