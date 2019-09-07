@@ -23,7 +23,8 @@ This's a core package of Auto-Generate-Re-export-File package. This package prov
 
 Two primary exported APIs was: recursiveGenerateExportFile and generateExportFile.
 
-The CLI package is located at: [CLI_PACKAGE](https://www.npmjs.com/package/@autogen-export/core()
+The CLI package is located at: [CLI_PACKAGE](https://www.npmjs.com/package/@autogen-export/core)
+
 **USAGE:**
 ```
 export interface RecursiveGenerateReexportIndex {
