@@ -1,6 +1,8 @@
 **INTRODUCTION:**
 This package provides CLI which integrates core package. Provide functionalities such as generate re-export file and recursively generate re-export file.
 
+
+The core package is located at: [CORE_PACKAGE](https://www.npmjs.com/package/@autogen-export/core()
 **USAGE**
 ```
   $ @autogen-export [ROOTDIRECTORY] [BABELCONFIGPATH] [STRIPFILEEXTS] [FILEEXTS] [IGNOREDESTINATIONREGEXS] [GENERATEDFILEEXT]

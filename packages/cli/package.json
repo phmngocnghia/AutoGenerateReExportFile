@@ -1,11 +1,14 @@
 {
   "name": "@autogen-export/cli",
-  "version": "3.0.1",
+  "version": "3.0.3",
   "author": "Nghia Pham @phmngocnghia",
   "bin": {
     "@autogen-export": "./bin/run"
   },
-  "bugs": "https://github.com/phmngocnghia/AutoGenerateReExportFile/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/packages/cli"
+  },
   "dependencies": {
     "@babel/core": "^7.6.0",
     "@oclif/command": "^1.5.19",
@@ -44,7 +47,6 @@
   "oclif": {
     "bin": "@autogen-export"
   },
-  "repository": "phmngocnghia/cli",
   "scripts": {
     "prepack": "rm -rf lib && tsc -b",
     "run:cmd": "./bin/run -r -w './example'",
