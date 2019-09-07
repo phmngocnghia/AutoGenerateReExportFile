@@ -1,2 +1,2 @@
 import { RecursiveTravelDirectoriesInput } from "@types";
-export declare const travelDirectory: ({ rootDirectory, currentTravelDirectory, travelCallBack }: RecursiveTravelDirectoriesInput) => Promise<unknown>;
+export declare const travelDirectory: ({ rootDirectory, currentTravelDirectory, travelCallBack }: RecursiveTravelDirectoriesInput) => Promise<{}>;

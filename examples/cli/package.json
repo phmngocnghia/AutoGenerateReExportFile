@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@autogen-export/cli": "^1.0.0"
+    "@autogen-export/cli": "latest"
   },
   "scripts": {
     "run:example-recursive": "yarn clean:examples && node './examples/recursiveGenerateExportFile'",

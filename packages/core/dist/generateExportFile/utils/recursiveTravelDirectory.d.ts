@@ -8,4 +8,4 @@ import { RecursiveTravelDirectoriesInput } from "@types";
  *
  * Just like travel a tree using DFS algorithm
  */
-export declare const recursiveTravelDirectory: ({ rootDirectory, currentTravelDirectory, travelCallBack }: RecursiveTravelDirectoriesInput) => Promise<unknown>;
+export declare const recursiveTravelDirectory: ({ rootDirectory, currentTravelDirectory, travelCallBack }: RecursiveTravelDirectoriesInput) => Promise<{}>;

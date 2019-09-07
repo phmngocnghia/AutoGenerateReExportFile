@@ -1,6 +1,6 @@
 {
   "name": "@autogen-export/core",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "main": "./dist/index.js",
   "types": "./dist/generateExportFile/index.d.ts",
   "author": "Nghia Pham <phmngocnghia@gmail.com>",
@@ -26,7 +26,7 @@
     "re-export file"
   ],
   "dependencies": {
-    "@babel/core": "^7.5.5"
+    "@babel/core": "^7.6.0"
   },
   "devDependencies": {
     "@babel/node": "^7.5.5",
@@ -52,5 +52,5 @@
     "webpack-node-externals": "^1.7.2",
     "webpack-notifier": "^1.8.0"
   },
-  "gitHead": "ca4af158ff6fa0e63fbcbec97e3c588b0819f2b2"
+  "gitHead": "a8c3aa34d3a222a716477d064484cd12223f55c1"
 }
