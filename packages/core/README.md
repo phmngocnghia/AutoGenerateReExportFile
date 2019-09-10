@@ -1,3 +1,5 @@
+THIS PLUGIN CURRENT NOT SUPPORT EXPORT DEFAULT
+
 **INSTALLATION:**
 ```npm install --dev @autogenerate-export/core```
 
