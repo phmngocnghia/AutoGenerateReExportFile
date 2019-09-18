@@ -1,6 +1,6 @@
 {
   "name": "@autogen-export/cli",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "author": "Nghia Pham @phmngocnghia",
   "bin": {
     "@autogen-export": "./bin/run"
@@ -17,7 +17,7 @@
     "tslib": "^1"
   },
   "devDependencies": {
-    "@autogen-export/core": "^3.0.2",
+    "@autogen-export/core": "^3.0.4",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-typescript": "^7.6.0",
     "@oclif/test": "^1.2.5",
