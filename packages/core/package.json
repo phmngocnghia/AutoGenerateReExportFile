@@ -28,6 +28,9 @@
   "dependencies": {
     "@babel/core": "^7.6.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@babel/node": "^7.5.5",
     "@babel/parser": "^7.5.5",

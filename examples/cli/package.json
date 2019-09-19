@@ -7,6 +7,7 @@
     "@autogen-export/cli": "latest"
   },
   "scripts": {
+    "a": "./node_modules/@autogen-export/cli/bin/run",
     "run:example-recursive": "yarn clean:examples && node './examples/recursiveGenerateExportFile'",
     "run:example": "yarn clean:examples && node './examples/generateExportFile'",
     "clean:examples": "find './examples' | grep -E 'index.ts' | xargs -I % rm %"
