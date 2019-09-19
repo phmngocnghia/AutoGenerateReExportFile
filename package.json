@@ -24,6 +24,7 @@
     "rimraf": "^3.0.0"
   },
   "scripts": {
-    "publish:all": "lerna publish from-package"
+    "publish:all": "lerna publish from-package",
+    "version:minor": "lerna version minor"
   }
 }
