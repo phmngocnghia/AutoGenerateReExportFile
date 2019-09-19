@@ -1,6 +1,6 @@
 {
   "name": "@autogen-export/cli",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "author": "Nghia Pham @phmngocnghia",
   "publishConfig": {
     "access": "public"
