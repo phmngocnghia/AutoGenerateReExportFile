@@ -22,5 +22,5 @@
     "**/index.ts",
     "**/emptyFile.ts",
     "node_modules"
-  ],
+  ]
 }

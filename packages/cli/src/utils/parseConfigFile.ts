@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import { resolve } from "path";
 
 export const parseConfigFile = () => {
-  const parseCfgPath = resolve(process.cwd(), "@auto-export.json");
+  const parseCfgPath = resolve(process.cwd(), "@autogen-export.json");
 
   const fileBuffer = readFileSync(parseCfgPath);
   const fileContent = fileBuffer.toString();
