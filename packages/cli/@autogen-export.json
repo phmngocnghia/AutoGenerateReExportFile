@@ -1,0 +1,8 @@
+{
+  "rootDirectory": "./example/",
+  "stripFileExts": "ts,tsx,js",
+  "fileExts": "ts",
+  "ignoreDestinationRegexs": "",
+  "babelConfigPath": "./src/__test__/.babelrc",
+  "generatedFileExt": "ts"
+}
