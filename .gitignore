@@ -1,4 +1,5 @@
 node_modules
+yarn-error.log
 coverage
 index.js
 index.ts
