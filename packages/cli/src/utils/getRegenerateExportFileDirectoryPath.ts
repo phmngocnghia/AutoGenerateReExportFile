@@ -20,6 +20,11 @@ export const getRegenerateExportFileDirectoryPath = ({
   ) {
     return result;
   }
+  console.log({
+    directoryPathOfFileChange,
+    rootDirectoryPath,
+    absoluteDirectoryPath
+  });
 
   // infinity loop detector
   const set = new Set();
