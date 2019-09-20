@@ -2,7 +2,7 @@
 This package provides CLI which integrates core package. Provide functionalities such as generate re-export file and recursively generate re-export file.
 
 
-The core package is located at: [CORE_PACKAGE](https://www.npmjs.com/package/@autogen-export/core)
+The core package is located at: [CORE PACKAGE](https://www.npmjs.com/package/@autogen-export/core)
 
 **USAGE**
 ```
@@ -25,3 +25,11 @@ The core package is located at: [CORE_PACKAGE](https://www.npmjs.com/package/@au
   -r, --recursive  generate recursively
   -w, --watch      watch for file changed and re-generate re-export file
 ```
+
+**MY MEDIUM POST:**
+ - (recursively-export-file-pattern-in-javascript-es6-application)[https://medium.com/@phmngocnghia/recursively-export-file-pattern-in-javascript-es6-application-e56319de49af]
+
+**EXAMPLE:**
+* All executable examples is placed in an example folder.
+* I have also create a example folder. Inited and installed `@autogen-export/cli` to demonstrate how it's work: https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/examples/cli
+* Just run npm scripts: `run:example` or `run:example-recursive`
