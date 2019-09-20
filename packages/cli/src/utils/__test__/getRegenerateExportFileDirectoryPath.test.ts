@@ -21,4 +21,17 @@ describe("getRegenerateExportFileDirectoryPath", () => {
 
     expect(getRegenerateExportFileDirectoryPath(input)).toEqual(output);
   });
+
+  it("Handle absolute directory", () => {
+    process.cwd = () => "/";
+
+    const input = {
+      rootDirectoryPath: "./user",
+      directoryPathOfFileChange: "/user/phmngocnghia/desktop"
+    };
+
+    const output = ["/user/phmngocnghia/desktop", "/user/phmngocnghia"];
+
+    expect(getRegenerateExportFileDirectoryPath(input)).toEqual(output);
+  });
 });

@@ -1,4 +1,4 @@
-import { resolve } from "path";
+import { resolve, isAbsolute } from "path";
 
 export const getRegenerateExportFileDirectoryPath = ({
   rootDirectoryPath,
@@ -7,6 +7,10 @@ export const getRegenerateExportFileDirectoryPath = ({
   rootDirectoryPath: string;
   directoryPathOfFileChange: string;
 }) => {
+  const absoluteDirectoryPath = isAbsolute(rootDirectoryPath)
+    ? rootDirectoryPath
+    : resolve(process.cwd(), rootDirectoryPath);
+
   let directoryPathOfFileChangeBackward = directoryPathOfFileChange;
   const result = [directoryPathOfFileChangeBackward];
 
@@ -18,7 +22,7 @@ export const getRegenerateExportFileDirectoryPath = ({
     (directoryPathOfFileChangeBackward = resolve(
       directoryPathOfFileChangeBackward,
       "../"
-    )) !== rootDirectoryPath
+    )) !== absoluteDirectoryPath
   ) {
     result.push(directoryPathOfFileChangeBackward);
   }

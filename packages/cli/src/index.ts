@@ -1,4 +1,5 @@
 import { Command, flags } from "@oclif/command";
+import { dirname } from "path";
 import { createIgnoreRegexString } from "./utils/createIgnoreRegexString";
 import { isValidPathSync } from "./validators/isValidFolderPathSync";
 import { watchDirHandler } from "./utils/watchDirHandler";
@@ -130,8 +131,9 @@ class AutogenExport extends Command {
       const absoluteRootDirectory = resolve(process.cwd(), rootDirectory);
 
       const _watchDirHandler = (path: string) => {
+        const dirName = dirname(path);
         watchDirHandler({
-          path,
+          path: dirName,
           generateExportFileParams
         });
 
