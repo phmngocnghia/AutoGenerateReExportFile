@@ -48,7 +48,7 @@ export interface RecursiveGenerateReexportIndex {
 -   **stripFileExts** = fileExts
 
 **MY MEDIUM POST:**
- - (recursively-export-file-pattern-in-javascript-es6-application)[https://medium.com/@phmngocnghia/recursively-export-file-pattern-in-javascript-es6-application-e56319de49af]
+[recursively-export-file-pattern-in-javascript-es6-application](https://medium.com/@phmngocnghia/recursively-export-file-pattern-in-javascript-es6-application-e56319de49af)
 
 **EXAMPLE:**
 * All executable examples is placed in an example folder.
