@@ -18,24 +18,29 @@ export const getRegenerateExportFileDirectoryPath = ({
     return result;
   }
 
+  // infinity loop detector
+  const set = new Set();
   while (
     (directoryPathOfFileChangeBackward = resolve(
       directoryPathOfFileChangeBackward,
       "../"
     )) !== absoluteDirectoryPath
   ) {
-    result.push(directoryPathOfFileChangeBackward);
-    if (rootDirectoryPath === "/") {
-      console.log(
-        'Root directory path reached "/". Something is wrong. Please report to the owner of the package'
+    if (set.has(directoryPathOfFileChangeBackward)) {
+      console.error(
+        "Something is wrong. Please report back to the owner of the package"
       );
-      console.log({
-        rootDirectoryPath,
-        directoryPathOfFileChangeBackward
+      console.error({
+        directoryPathOfFileChangeBackward,
+        directoryPathOfFileChange,
+        set: JSON.stringify([...set]),
+        absoluteDirectoryPath
       });
-
-      return result;
+      return [];
     }
+
+    set.add(directoryPathOfFileChangeBackward);
+    result.push(directoryPathOfFileChangeBackward);
   }
 
   return result;

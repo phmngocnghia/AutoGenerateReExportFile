@@ -34,4 +34,13 @@ describe("getRegenerateExportFileDirectoryPath", () => {
 
     expect(getRegenerateExportFileDirectoryPath(input)).toEqual(output);
   });
+
+  it("Handle not correct rootDirectory and directoryPathOfFileChange correctly", () => {
+    const input = {
+      rootDirectoryPath: "./user2",
+      directoryPathOfFileChange: "/user/phmngocnghia/desktop"
+    };
+
+    expect(getRegenerateExportFileDirectoryPath(input)).toEqual([]);
+  });
 });
