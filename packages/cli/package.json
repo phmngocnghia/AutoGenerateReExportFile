@@ -5,7 +5,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "bin": "./bin/run",
+  "bin": {
+    "autogen-export": "./bin/run"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/packages/cli"
