@@ -2,10 +2,23 @@
 # yarn lockfile v1
 
 
-"@autogen-export/core@^3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@autogen-export/core/-/core-3.0.4.tgz#251f5fb3afbe4faeda0eb54a8b8fe85acd9b95fe"
-  integrity sha512-xTPP9N1OSqREkhovIkwApRm8AvQrrVcxlx4+DdK2Stl0I6EhAm7L3AcKFa6gF25b+20wQC02Wb1SzKy1eVWoKw==
+"@autogen-export/cli@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@autogen-export/cli/-/cli-4.0.3.tgz#e59358135729fd9aa8f10292e0c3ad74c38f0643"
+  integrity sha512-NSLdgcXSDdWIafoi/8zv0P6qvFDI1dBGwZEeJmVCPxisA+L2Iec+2wQPk1ETTU5+VrYKeF9qQKCO7bFTm6Gepw==
+  dependencies:
+    "@autogen-export/core" "^4.0.3"
+    "@babel/core" "^7.6.0"
+    "@oclif/command" "^1.5.19"
+    "@oclif/config" "^1"
+    "@oclif/plugin-help" "^2"
+    chokidar "^3.0.2"
+    tslib "^1"
+
+"@autogen-export/core@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@autogen-export/core/-/core-4.0.3.tgz#fed89fb531ae42593dbc9884c6d21cefd5f12870"
+  integrity sha512-UVhOb+lUMmVpMixFSuv3oyW6gvbRSMEeTO5+hESnOU4aaoRmipN1UnwLGJ33v4SsoLfbrXCFatD6/xNczoyAIg==
   dependencies:
     "@babel/core" "^7.6.0"
 

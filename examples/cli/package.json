@@ -5,8 +5,8 @@
   "license": "MIT",
   "dependencies": {},
   "scripts": {
-    "run:example-recursive": "yarn clean:examples && npx @autogen-export/cli -r './examples/recursiveGenerateExportFile'",
-    "run:example": "yarn clean:examples && npx @autogen-export/cli './examples/generateExportFile/target/'",
+    "run:example-recursive": "yarn clean:examples && autogen-export -r './examples/recursiveGenerateExportFile'",
+    "run:example": "yarn clean:examples && autogen-export './examples/generateExportFile/target/'",
     "clean:examples": "find './examples' | grep -E 'index.ts' | xargs -I % rm %"
   },
   "devDependencies": {
