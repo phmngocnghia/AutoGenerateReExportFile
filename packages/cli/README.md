@@ -6,7 +6,7 @@ The core package is located at: [CORE_PACKAGE](https://www.npmjs.com/package/@au
 
 **USAGE**
 ```
-  $ @autogen-export [ROOTDIRECTORY] [BABELCONFIGPATH] [STRIPFILEEXTS] [FILEEXTS] [IGNOREDESTINATIONREGEXS] [GENERATEDFILEEXT]
+  $ autogen-export [ROOTDIRECTORY] [BABELCONFIGPATH] [STRIPFILEEXTS] [FILEEXTS] [IGNOREDESTINATIONREGEXS] [GENERATEDFILEEXT]
 ```
 
 **ARGUMENTS**
@@ -24,5 +24,4 @@ The core package is located at: [CORE_PACKAGE](https://www.npmjs.com/package/@au
   -c, --cfg        specify configuration file. If specifiied, all agurments except directory will be ignored
   -r, --recursive  generate recursively
   -w, --watch      watch for file changed and re-generate re-export file
-
 ```
