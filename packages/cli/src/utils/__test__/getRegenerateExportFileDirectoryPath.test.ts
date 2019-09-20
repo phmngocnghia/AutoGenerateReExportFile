@@ -43,4 +43,17 @@ describe("getRegenerateExportFileDirectoryPath", () => {
 
     expect(getRegenerateExportFileDirectoryPath(input)).toEqual([]);
   });
+
+  it("Handle handle rootDirectory as relative directory", () => {
+    process.cwd = () => "/Users/phmngocnghia/Desktop/ExampleWebpack/";
+    const input = {
+      rootDirectoryPath: "./src",
+      directoryPathOfFileChange:
+        "/Users/phmngocnghia/Desktop/ExampleWebpack/src"
+    };
+
+    const output = ["/Users/phmngocnghia/Desktop/ExampleWebpack/src"];
+
+    expect(getRegenerateExportFileDirectoryPath(input)).toEqual(output);
+  });
 });

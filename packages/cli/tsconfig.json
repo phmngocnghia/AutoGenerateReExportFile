@@ -18,6 +18,7 @@
     "src/**/*"
   ],
   "exclude": [
+    "**/src/__test__/**",
     "**/es6BadSyntax.ts",
     "**/index.ts",
     "**/emptyFile.ts",

@@ -54,7 +54,7 @@
   "scripts": {
     "prepack": "rm -rf lib && tsc -b",
     "run:cmd": "./bin/run -r -w './example'",
-    "test": "jest --watch",
+    "test": "jest --watch -t 'Call watchDirHandler correctly'",
     "test:coverage": "jest --coverage",
     "prepublishOnly": "rm -rf './node_modules/@types/mocha/'"
   },

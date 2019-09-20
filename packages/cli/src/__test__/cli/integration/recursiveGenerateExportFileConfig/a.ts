@@ -2,7 +2,7 @@ import AutoGenExportCommand from "../../../../index";
 import { resolve } from "path";
 import { readFile } from "fs";
 
-describe("recursiveGenerateExportFileIgnoreTest - Config file", () => {
+describe("integration - recursiveGenerateExportFileIgnoreTest - Config file", () => {
   it("Should ignore folder if ignoreDestinationRegexs is specify", done => {
     AutoGenExportCommand.run(["-c"]).then(() => {
       const testCases = [
@@ -19,8 +19,8 @@ describe("recursiveGenerateExportFileIgnoreTest - Config file", () => {
             "./recursiveGenerateExportFileTestFolderIgnore/A/index.ts"
           ),
           outputContent: `export * from './es6DefaultExport'
-export * from './es6NamedExport'
-export * from './A.A'`
+        export * from './es6NamedExport'
+        export * from './A.A'`
         },
         {
           file: resolve(
@@ -28,7 +28,7 @@ export * from './A.A'`
             "./recursiveGenerateExportFileTestFolderIgnore/A/A.A/index.ts"
           ),
           outputContent: `export * from './es6DefaultExport'
-export * from './es6NamedExport'`
+        export * from './es6NamedExport'`
         },
         {
           file: resolve(

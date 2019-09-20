@@ -14,7 +14,10 @@ export const getRegenerateExportFileDirectoryPath = ({
   let directoryPathOfFileChangeBackward = directoryPathOfFileChange;
   const result = [directoryPathOfFileChangeBackward];
 
-  if (directoryPathOfFileChange === rootDirectoryPath) {
+  if (
+    directoryPathOfFileChange === rootDirectoryPath ||
+    directoryPathOfFileChange === absoluteDirectoryPath
+  ) {
     return result;
   }
 
@@ -34,7 +37,8 @@ export const getRegenerateExportFileDirectoryPath = ({
         directoryPathOfFileChangeBackward,
         directoryPathOfFileChange,
         set: JSON.stringify([...set]),
-        absoluteDirectoryPath
+        absoluteDirectoryPath,
+        rootDirectoryPath
       });
       return [];
     }

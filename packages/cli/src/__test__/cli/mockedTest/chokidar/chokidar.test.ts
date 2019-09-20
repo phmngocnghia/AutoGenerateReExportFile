@@ -5,16 +5,13 @@ import { writeFile, writeFileSync } from "fs";
 import * as path from "path";
 import { watchDirHandler } from "../../../../utils/watchDirHandler";
 
-jest.mock("../../../../utils/watchDirHandler.ts");
+jest.mock("../../../../utils/watchDirHandler");
 jest.mock("@autogen-export/core", () => ({
   generateExportFile: jest.fn(),
   recursiveGenerateExportFile: jest.fn()
 }));
 
 describe("Mocked chokidar test", () => {
-  afterEach(() => {
-    (watchDirHandler as jest.Mock).mockClear();
-  });
   describe("Ignore file", () => {
     it("Ignore initial file", done => {
       writeFile(
@@ -24,7 +21,6 @@ describe("Mocked chokidar test", () => {
           if (err) {
             throw err;
           }
-
           const dir = path.resolve(__dirname, "./chokidarTestDirectory");
           AutoGenExportCommand.run([
             "-w",
@@ -44,12 +40,7 @@ describe("Mocked chokidar test", () => {
         }
       );
     });
-
     it("Ignore generated index file in chokidarTestDirectory", done => {
-      let promiseWaitForWatchDirHandlerCalled = new Promise(resolve => {
-        (global as any).waitForWatchDirHandlerCalled = resolve;
-      });
-
       const dir = path.resolve(__dirname, "./chokidarTestDirectory");
       AutoGenExportCommand.run([
         "-w",
@@ -75,10 +66,7 @@ describe("Mocked chokidar test", () => {
   });
 
   it("Call watchDirHandler correctly", done => {
-    let promiseWaitForWatchDirHandlerCalled = new Promise(resolve => {
-      (global as any).waitForWatchDirHandlerCalled = resolve;
-    });
-
+    (watchDirHandler as jest.Mock).mockClear();
     const dir = path.resolve(__dirname, "./chokidarTestDirectory");
     AutoGenExportCommand.run([
       "-w",
@@ -91,14 +79,13 @@ describe("Mocked chokidar test", () => {
     ]).then(() => {
       // create "index.ts file"
       writeFileSync(
-        resolve(__dirname, "./chokidarTestDirectory/index2.ts"),
+        resolve(__dirname, "./chokidarTestDirectory/b.ts"),
         "export default '1231'"
       );
-
-      promiseWaitForWatchDirHandlerCalled.then(() => {
+      setTimeout(() => {
         expect(watchDirHandler).toBeCalledTimes(1);
         expect(watchDirHandler).toHaveBeenNthCalledWith(1, {
-          path: resolve(__dirname, "./chokidarTestDirectory/index2.ts"),
+          path: resolve(__dirname, "./chokidarTestDirectory"),
           generateExportFileParams: {
             babelConfigPath: resolve(__dirname, "../.babelrc"),
             rootDirectory: resolve(__dirname, "./chokidarTestDirectory/"),
@@ -108,15 +95,15 @@ describe("Mocked chokidar test", () => {
             ignoreDestinationRegexs: [/abc/, /xyz/]
           }
         });
-      });
-      done();
+        done();
+      }, 500);
     });
   });
 
-  afterEach(() => {
+  beforeEach(() => {
     // clear file in test directory
+    (watchDirHandler as jest.Mock).mockClear();
     const path = resolve(__dirname, "./chokidarTestDirectory/*");
-
     sync(path);
   });
 });
