@@ -52,7 +52,7 @@
     "bin": "@autogen-export"
   },
   "scripts": {
-    "prepack": "rm -rf lib && tsc -b",
+    "prepack": "rm -rf lib && tsc -b && rm -rf lib/__test__",
     "run:cmd": "./bin/run -r -w './example'",
     "test": "jest --watch -t 'Call watchDirHandler correctly'",
     "test:coverage": "jest --coverage",
