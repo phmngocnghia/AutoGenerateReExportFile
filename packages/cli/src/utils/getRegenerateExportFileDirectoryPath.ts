@@ -25,6 +25,17 @@ export const getRegenerateExportFileDirectoryPath = ({
     )) !== absoluteDirectoryPath
   ) {
     result.push(directoryPathOfFileChangeBackward);
+    if (rootDirectoryPath === "/") {
+      console.log(
+        'Root directory path reached "/". Something is wrong. Please report to the owner of the package'
+      );
+      console.log({
+        rootDirectoryPath,
+        directoryPathOfFileChangeBackward
+      });
+
+      return result;
+    }
   }
 
   return result;
