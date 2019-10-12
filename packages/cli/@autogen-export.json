@@ -4,5 +4,6 @@
   "fileExts": "ts",
   "ignoreDestinationRegexs": "",
   "babelConfigPath": "./src/__test__/.babelrc",
-  "generatedFileExt": "ts"
+  "generatedFileExt": "ts",
+  "ignoreMatchFileRegexes":"styles"
 }

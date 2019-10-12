@@ -1,6 +1,6 @@
 {
   "name": "@autogen-export/cli",
-  "version": "4.0.11",
+  "version": "4.0.12",
   "author": "Nghia Pham @phmngocnghia",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "url": "https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/packages/cli"
   },
   "dependencies": {
-    "@autogen-export/core": "^4.0.11",
+    "@autogen-export/core": "^4.0.12",
     "@babel/core": "^7.6.0",
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1",
@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-typescript": "^7.6.0",
     "@oclif/test": "^1.2.5",
-    "@types/jest": "^24.0.18",
+    "@types/jest": "^24.0.19",
     "@types/node": "^10",
     "chai": "^4.2.0",
     "jest": "^24.9.0",
@@ -54,7 +54,7 @@
   "scripts": {
     "prepack": "rm -rf lib && tsc -b && rm -rf lib/__test__",
     "run:cmd": "./bin/run -r -w './example'",
-    "test": "jest --watch -t 'Call watchDirHandler correctly'",
+    "test": "jest --watch -t 'recursiveGenerateExportFileTest- config file - integration test'",
     "test:coverage": "jest --coverage",
     "prepublishOnly": "rm -rf './node_modules/@types/mocha/'"
   },

@@ -1,6 +1,6 @@
 import { generateExportFile } from "@autogen-export/core";
 import { getRegenerateExportFileDirectoryPath } from "../utils/getRegenerateExportFileDirectoryPath";
-import { RecursiveGenerateReexportIndex } from "@autogen-export/core/dist/types/recursiveGenerateReexportIndex";
+import { RecursiveGenerateReexportIndex } from "@autogen-export/core/dist/types/recursiveGenerateReexportIndex.def";
 
 export const watchDirHandler = ({
   path,

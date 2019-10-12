@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@autogen-export/cli@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@autogen-export/cli/-/cli-4.0.3.tgz#e59358135729fd9aa8f10292e0c3ad74c38f0643"
-  integrity sha512-NSLdgcXSDdWIafoi/8zv0P6qvFDI1dBGwZEeJmVCPxisA+L2Iec+2wQPk1ETTU5+VrYKeF9qQKCO7bFTm6Gepw==
+"@autogen-export/cli@latest":
+  version "4.0.12"
+  resolved "https://registry.yarnpkg.com/@autogen-export/cli/-/cli-4.0.12.tgz#082c75c3ac93b31885191b32e82c0b40ec5c5190"
+  integrity sha512-lcObPkf3wTf8Y5qElrZl7ZbqFnocCZ9BF9bugTxyV+qn17HdsmxlQLqZSAM1kbMpghNL9t8ncJTXWCZSoZtXpA==
   dependencies:
-    "@autogen-export/core" "^4.0.3"
+    "@autogen-export/core" "^4.0.12"
     "@babel/core" "^7.6.0"
     "@oclif/command" "^1.5.19"
     "@oclif/config" "^1"
@@ -15,10 +15,10 @@
     chokidar "^3.0.2"
     tslib "^1"
 
-"@autogen-export/core@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@autogen-export/core/-/core-4.0.3.tgz#fed89fb531ae42593dbc9884c6d21cefd5f12870"
-  integrity sha512-UVhOb+lUMmVpMixFSuv3oyW6gvbRSMEeTO5+hESnOU4aaoRmipN1UnwLGJ33v4SsoLfbrXCFatD6/xNczoyAIg==
+"@autogen-export/core@^4.0.12":
+  version "4.0.12"
+  resolved "https://registry.yarnpkg.com/@autogen-export/core/-/core-4.0.12.tgz#ad98153fb1d06c8558523d8331deb8e7a761e328"
+  integrity sha512-BFnOFe+Dot9IHNgc0/iPgDTgeIB0eyHty+Pm7WIQyz3nbJ2rIlqkQHtudBw6t7Wop0yQSCgfRYI4QYUFPpsgUQ==
   dependencies:
     "@babel/core" "^7.6.0"
 
@@ -1070,10 +1070,10 @@
   resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
   integrity sha512-yALhelO3i0hqZwhjtcr6dYyaLoCHbAMshwtj6cGxTvHZAKXHsYGdff6E8EPw3xLKY0ELUTQ69Q1rQiJENnccMA==
 
-"@types/jest@^24.0.18":
-  version "24.0.18"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.18.tgz#9c7858d450c59e2164a8a9df0905fc5091944498"
-  integrity sha512-jcDDXdjTcrQzdN06+TSVsPPqxvsZA/5QkYfIZlq1JMw7FdP5AZylbOc+6B/cuDurctRe+MziUMtQ3xQdrbjqyQ==
+"@types/jest@^24.0.19":
+  version "24.0.19"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.19.tgz#f7036058d2a5844fe922609187c0ad8be430aff5"
+  integrity sha512-YYiqfSjocv7lk5H/T+v5MjATYjaTMsUkbDnjGqSMoO88jWdtJXJV4ST/7DKZcoMHMBvB2SeSfyOzZfkxXHR5xg==
   dependencies:
     "@types/jest-diff" "*"
 

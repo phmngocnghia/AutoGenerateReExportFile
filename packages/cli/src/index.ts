@@ -4,13 +4,14 @@ import { createIgnoreRegexString } from "./utils/createIgnoreRegexString";
 import { isValidPathSync } from "./validators/isValidFolderPathSync";
 import { watchDirHandler } from "./utils/watchDirHandler";
 import { parseConfigFile } from "./utils/parseConfigFile";
+import { transformRegexesString } from "./utils/transformRegexesString";
 
 import {
   recursiveGenerateExportFile,
   generateExportFile
 } from "@autogen-export/core";
 
-import { RecursiveGenerateReexportIndex } from "@autogen-export/core/dist/types/recursiveGenerateReexportIndex";
+import { RecursiveGenerateReexportIndex } from "@autogen-export/core/dist/types/recursiveGenerateReexportIndex.def";
 import { watch as chokidarWatch } from "chokidar";
 import { resolve } from "path";
 
@@ -65,6 +66,11 @@ class AutogenExport extends Command {
       description:
         "Extension of generated file. Generated file name will be index",
       default: "ts"
+    },
+    {
+      name: "ignoreMatchFileRegexes",
+      description: "files that matched regexes will be ignore",
+      default: undefined
     }
   ];
 
@@ -79,7 +85,8 @@ class AutogenExport extends Command {
       fileExts,
       ignoreDestinationRegexs,
       babelConfigPath,
-      generatedFileExt
+      generatedFileExt,
+      ignoreMatchFileRegexes
     } = cfg ? parseConfigFile() : args;
 
     if (!cfg && !rootDirectory) {
@@ -88,17 +95,13 @@ class AutogenExport extends Command {
       );
     }
 
-    let transformedIgnoreDestinationRegexs: RegExp[];
+    let transformedIgnoreDestinationRegexs = transformRegexesString(
+      ignoreDestinationRegexs
+    );
 
-    if (ignoreDestinationRegexs && ignoreDestinationRegexs.length > 0) {
-      transformedIgnoreDestinationRegexs = ignoreDestinationRegexs
-        .split(",")
-        .map(
-          (ignoreDestinationRegex: string) => new RegExp(ignoreDestinationRegex)
-        );
-    } else {
-      transformedIgnoreDestinationRegexs = [];
-    }
+    let transformedIgnoreMatchFileRegexes = transformRegexesString(
+      ignoreMatchFileRegexes
+    );
 
     if (!isValidPathSync(rootDirectory)) {
       this.error(new Error("Root directory path is invalid"));
@@ -110,7 +113,8 @@ class AutogenExport extends Command {
       fileExts: fileExts.split(","),
       stripFileExts: stripFileExts.split(","),
       generatedFileExt,
-      babelConfigPath
+      babelConfigPath,
+      ignoreMatchFileRegexes
     };
 
     if (recursive) {

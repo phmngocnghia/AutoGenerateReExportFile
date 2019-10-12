@@ -14,7 +14,8 @@ export const parseConfigFile = () => {
     "fileExts",
     "ignoreDestinationRegexs",
     "babelConfigPath",
-    "generatedFileExt"
+    "generatedFileExt",
+    "ignoreMatchFileRegexes"
   ];
 
   for (let key of keys) {
@@ -34,7 +35,8 @@ export const parseConfigFile = () => {
     fileExts = "ts,tsx,js,jsx",
     ignoreDestinationRegexs,
     babelConfigPath,
-    generatedFileExt = "ts"
+    generatedFileExt = "ts",
+    ignoreMatchFileRegexes
   } = parsedFileContent;
 
   if (!rootDirectory) {
@@ -49,6 +51,7 @@ export const parseConfigFile = () => {
     fileExts,
     ignoreDestinationRegexs,
     babelConfigPath,
-    generatedFileExt
+    generatedFileExt,
+    ignoreMatchFileRegexes
   };
 };

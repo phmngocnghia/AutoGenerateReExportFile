@@ -1,4 +1,5 @@
 export interface GenerateIndexTsParams {
+    ignoreMatchFileRegexes?: RegExp[];
     destinationPath: string;
     inputDirectoryNames: string[];
     inputFileNames: string[];

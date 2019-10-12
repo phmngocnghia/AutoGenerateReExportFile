@@ -1,2 +1,2 @@
 /* eslint-disable */
-const a = "";
+export default 'a' =

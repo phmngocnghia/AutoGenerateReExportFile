@@ -2,24 +2,36 @@ import AutoGenExportCommand from "../../../../index";
 import { resolve } from "path";
 import { readFile } from "fs";
 
-describe("recursiveGenerateExportFileTest- Config file", () => {
+describe("recursiveGenerateExportFile - integration test", () => {
   it("work correctly", async done => {
-    await AutoGenExportCommand.run(["-c", ]);
+    const cliInput = [
+      resolve(
+        __dirname,
+        "./recursiveGenerateExportFileTestFolderTestIgnoreFileMatchRegexes//"
+      ),
+      resolve(__dirname, "./.babelrc"),
+      "ts,tsx,js,jsx",
+      "ts,tsx,js,jsx",
+      "",
+      "ts",
+      "styles"
+    ];
+
+    await AutoGenExportCommand.run(["-r", ...cliInput]);
 
     const testCases = [
       {
         file: resolve(
           __dirname,
-          "./recursiveGenerateExportFileTestFolder/A/index.ts"
+          "./recursiveGenerateExportFileTestFolderTestIgnoreFileMatchRegexes/A/index.ts"
         ),
         outputContent: `export * from './es6DefaultExport'
-export * from './es6NamedExport'
 export * from './A.A'`
       },
       {
         file: resolve(
           __dirname,
-          "./recursiveGenerateExportFileTestFolder/A/A.A/index.ts"
+          "./recursiveGenerateExportFileTestFolderTestIgnoreFileMatchRegexes/A/A.A/index.ts"
         ),
         outputContent: `export * from './es6DefaultExport'
 export * from './es6NamedExport'`
@@ -27,7 +39,7 @@ export * from './es6NamedExport'`
       {
         file: resolve(
           __dirname,
-          "./recursiveGenerateExportFileTestFolder/B/index.ts"
+          "./recursiveGenerateExportFileTestFolderTestIgnoreFileMatchRegexes/B/index.ts"
         ),
         outputContent: `export * from './es6NamedExport'`
       }

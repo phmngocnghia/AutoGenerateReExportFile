@@ -8,7 +8,8 @@ describe("parseConfigFile", () => {
         "fileExts": "ts",
         "ignoreDestinationRegexs": "",
         "babelConfigPath": "./src/__test__/.babelrc",
-        "generatedFileExt": "ts"
+        "generatedFileExt": "ts",
+        "ignoreMatchFileRegexes": "styles,^styles$"
       }
           `
     }));
@@ -19,7 +20,8 @@ describe("parseConfigFile", () => {
       fileExts: "ts",
       ignoreDestinationRegexs: "",
       babelConfigPath: "./src/__test__/.babelrc",
-      generatedFileExt: "ts"
+      generatedFileExt: "ts",
+      ignoreMatchFileRegexes: "styles,^styles$"
     });
   });
 
@@ -39,7 +41,8 @@ describe("parseConfigFile", () => {
       fileExts: "ts,tsx,js,jsx",
       ignoreDestinationRegexs: undefined,
       babelConfigPath: undefined,
-      generatedFileExt: "ts"
+      generatedFileExt: "ts",
+      ignoreMatchFileRegexes: undefined
     });
   });
 
@@ -51,7 +54,7 @@ describe("parseConfigFile", () => {
         "fileExts": "ts",
         "ignoreDestinationRegexs": "",
         "babelConfigPath": "./src/__test__/.babelrc",
-        "generatedFileExt": "ts"
+        "generatedFileExt": "ts",
       }
           `
     }));

@@ -13,7 +13,7 @@ import {
   generateExportFile
 } from "@autogen-export/core";
 
-import { RecursiveGenerateReexportIndex } from "@autogen-export/core/dist/types/recursiveGenerateReexportIndex";
+import { RecursiveGenerateReexportIndex } from "@autogen-export/core/dist/types/recursiveGenerateReexportIndex.def";
 
 describe("Auto Gen Export Command", () => {
   describe("Handle error", () => {
@@ -43,7 +43,8 @@ describe("Auto Gen Export Command", () => {
       rootDirectory: path.resolve(__dirname, "./integration/"),
       babelConfigPath: path.resolve(__dirname, "./.babelrc"),
       generatedFileExt: "js",
-      ignoreDestinationRegexs: [/vue/]
+      ignoreDestinationRegexs: [/vue/],
+      ignoreMatchFileRegexes: [/styles/, /^styles$/]
     };
 
     const cliInput = [
@@ -52,7 +53,8 @@ describe("Auto Gen Export Command", () => {
       "vue,ts",
       "vue,ts",
       "vue",
-      "js"
+      "js",
+      "styles,^styles$"
     ];
 
     it("called generated export file with proper value", async () => {

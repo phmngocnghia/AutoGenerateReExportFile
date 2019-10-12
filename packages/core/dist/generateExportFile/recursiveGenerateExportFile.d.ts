@@ -5,5 +5,6 @@ export declare const recursiveGenerateExportFile: ({
   generatedFileExt,
   fileExts,
   babelConfigPath,
-  stripFileExts
-}: RecursiveGenerateReexportIndex) => Promise<unknown>;
+  stripFileExts,
+  ignoreMatchFileRegexes
+}: RecursiveGenerateReexportIndex) => Promise<{}>;
