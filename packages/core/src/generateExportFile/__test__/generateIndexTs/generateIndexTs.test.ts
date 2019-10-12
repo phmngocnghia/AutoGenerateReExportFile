@@ -3,7 +3,35 @@ import { generateIndexTs } from "../../utils/generateIndexTs";
 import { readFile } from "fs";
 
 describe("generateIndexTs", () => {
-  it("It should ignore if folder name inside ignoreDestinationRegexs", done => {
+  it("Should filter out directories and file names that match ignoreMatchFileRegexes", done => {
+    // execute
+    generateIndexTs({
+      inputFileNames: ["resolvableFile.ts", "resolvableFile.demo.ts"],
+      inputDirectoryNames: [],
+      fileExts: ["ts", "js"],
+      destinationPath: path.resolve(
+        __dirname,
+        "./generateIndexTsTestFolderNormalIgnoreFileMatchExtensions"
+      ),
+      generatedFileExt: "ts",
+      ignoreDestinationRegexs: [],
+      ignoreMatchFileRegexes: [/\.demo\.ts/]
+    }).then(() => {
+      // assert data of generate index function
+      readFile(
+        path.resolve(
+          __dirname,
+          "./generateIndexTsTestFolderNormalIgnoreFileMatchExtensions/index.ts"
+        ),
+        "utf8",
+        (_, data) => {
+          expect(data).toBe(`export * from './resolvableFile'`);
+          done();
+        }
+      );
+    });
+  });
+  it("should ignore if folder name inside ignoreDestinationRegexs", done => {
     // execute
     generateIndexTs({
       inputFileNames: ["resolvableFile.ts", "ts.ts", "js.js", "css.css"],

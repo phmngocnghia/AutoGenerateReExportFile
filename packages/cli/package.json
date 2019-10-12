@@ -22,7 +22,7 @@
     "tslib": "^1"
   },
   "devDependencies": {
-    "@autogen-export/cli": "^4.0.11",
+    "@autogen-export/cli": "latest",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-typescript": "^7.6.0",
     "@oclif/test": "^1.2.5",

@@ -12,7 +12,7 @@
   "scripts": {
     "build:declaration": "tsc --project './tsconfig-build-declaration.json' --declaration --outdir './dist' --emitDeclarationOnly",
     "build": "webpack --config-file './webpack.config.js'",
-    "test": "jest --watch -t 'isPathContainExport'",
+    "test": "jest --watch -t 'Should filter out directories and file names that match ignoreMatchFileRegexes'",
     "test:coverage": "jest --coverage",
     "lint:fix": "eslint './src/**/*.ts' --fix",
     "lint": "eslint './src/**/*.ts'",

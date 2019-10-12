@@ -5,4 +5,5 @@ export interface RecursiveGenerateReexportIndex {
   generatedFileExt?: string;
   ignoreDestinationRegexs?: RegExp[];
   babelConfigPath?: string;
+  ignoreMatchFileRegexes?: RegExp[];
 }

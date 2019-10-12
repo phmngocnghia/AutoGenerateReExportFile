@@ -8,12 +8,14 @@ export const generateExportFile = ({
   generatedFileExt = "js",
   fileExts = ["ts", "tsx", "js", "jsx"],
   babelConfigPath,
-  stripFileExts = fileExts
+  stripFileExts = fileExts,
+  ignoreMatchFileRegexes = []
 }: RecursiveGenerateReexportIndex) => {
   return travelDirectory({
     rootDirectory,
     travelCallBack: ({ directory, childFiles, childDirectories }) => {
       generateIndexTs({
+        ignoreMatchFileRegexes,
         inputFileNames: childFiles.filter(
           childFild => !/index\..+$/g.test(childFild)
         ),

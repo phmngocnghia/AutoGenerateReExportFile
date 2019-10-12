@@ -15,7 +15,8 @@ export const generateIndexTs = async ({
   generatedFileExt,
   destinationPath,
   ignoreDestinationRegexs,
-  babelConfigPath
+  babelConfigPath,
+  ignoreMatchFileRegexes = []
 }: GenerateIndexTsParams) => {
   // Ignore destination match destinations
   if (
@@ -26,8 +27,30 @@ export const generateIndexTs = async ({
     return;
   }
 
+  // ignore input directory name and file names match ignoreMatchFileRegexes
+  const filteredInputDirectoryNames = inputDirectoryNames.filter(
+    inputDirectoryName => {
+      for (let ignoreMatchFileRegex of ignoreMatchFileRegexes) {
+        if (ignoreMatchFileRegex.test(inputDirectoryName)) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+  );
+  const filteredInputFileNames = inputFileNames.filter(inputDirectoryName => {
+    for (let ignoreMatchFileRegex of ignoreMatchFileRegexes) {
+      if (ignoreMatchFileRegex.test(inputDirectoryName)) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
   const fileNamesMatchExt = filterFileNameByExt({
-    fileNames: inputFileNames,
+    fileNames: filteredInputFileNames,
     fileExts
   });
 
@@ -38,7 +61,7 @@ export const generateIndexTs = async ({
       babelConfigPath
     }),
     getFolderNamesInDestinationContainExport({
-      folderNames: inputDirectoryNames,
+      folderNames: filteredInputDirectoryNames,
       destinationPath,
       indexstring: generatedFileExt
     })
