@@ -1,0 +1,59 @@
+{
+  "name": "@autogen-export/core",
+  "version": "4.0.12",
+  "main": "./dist/index.js",
+  "types": "./dist/generateExportFile/index.d.ts",
+  "author": "Nghia Pham <phmngocnghia@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phmngocnghia/AutoGenerateReExportFile/tree/master/packages/core"
+  },
+  "scripts": {
+    "build:declaration": "tsc --project './tsconfig-build-declaration.json' --declaration --outdir './dist' --emitDeclarationOnly",
+    "build": "webpack --config-file './webpack.config.js'",
+    "test": "jest --watch -t 'Should filter out directories and file names that match ignoreMatchFileRegexes'",
+    "test:coverage": "jest --coverage",
+    "lint:fix": "eslint './src/**/*.ts' --fix",
+    "lint": "eslint './src/**/*.ts'",
+    "run:example-recursive": "yarn clean:examples && node './examples/recursiveGenerateExportFile'",
+    "run:example": "yarn clean:examples && node './examples/generateExportFile'",
+    "clean:examples": "find './examples' | grep -E 'index.ts' | xargs -I % rm %",
+    "prepublishOnly": "npm run build && npm run build:declaration"
+  },
+  "keywords": [
+    "auto generate",
+    "re-export file"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.5.5",
+    "@babel/parser": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@babel/traverse": "^7.5.5",
+    "@babel/types": "^7.5.5",
+    "@types/jest": "^24.0.18",
+    "babel-loader": "^8.0.6",
+    "chalk": "^2.4.2",
+    "eslint-loader": "^2.2.1",
+    "file-loader": "^4.1.0",
+    "fork-ts-checker-notifier-webpack-plugin": "^1.0.2",
+    "fork-ts-checker-webpack-plugin": "^1.3.7",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "webpack": "^4.35.2",
+    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-notifier": "^1.8.0"
+  },
+  "gitHead": "a8c3aa34d3a222a716477d064484cd12223f55c1"
+}
