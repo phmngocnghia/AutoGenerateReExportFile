@@ -1,14 +1,14 @@
 {
-// include rules and rules are enabled by default
+  // include rules and rules are enabled by default
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
+    "prettier/@typescript-eslint"
   ],
 
   "plugins": ["@typescript-eslint", "prettier"],
-  
+
   // variables that predefined
   "env": {
     "browser": true,
@@ -26,5 +26,7 @@
   },
 
   // parser for typescript
-  "parser": "@typescript-eslint/parser"
+  "parser": "@typescript-eslint/parser",
+
+  "ignorePatterns": ["node_modules/", "mocks", "dist", "lib"]
 }
